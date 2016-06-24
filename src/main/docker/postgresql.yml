@@ -1,0 +1,12 @@
+version: '2'
+services:
+    celsales-postgresql:
+        container_name: celsales-postgresql
+        image: postgres:9.5.2
+        # volumes:
+        #     - ~/volumes/jhipster/celSales/postgresql/:/var/lib/postgresql/
+        environment:
+            - POSTGRES_USER=celSales
+            - POSTGRES_PASSWORD=
+        ports:
+            - 5432:5432
