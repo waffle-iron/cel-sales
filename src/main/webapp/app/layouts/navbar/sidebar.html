@@ -1,0 +1,70 @@
+<div id="sidebar-wrapper" ng-switch="vm.isAuthenticated()">
+    <ul class="sidebar-nav">
+        <li ui-sref-active="active">
+            <a ui-sref="home" ng-click="vm.collapseNavbar()">
+                <span aria-hidden="true" class="sidebar glyphicon glyphicon-home"></span>
+                <span class="hidden-sm" translate="global.menu.home">Home</span>
+            </a>
+        </li>
+        <li>
+            <a ui-sref="chat" ng-click="vm.collapseNavbar()">
+              <span aria-hidden="true" class="sidebar glyphicon glyphicon-tower"></span>
+              CHAT
+            </a>
+        </li>
+        <li>
+            <a ui-sref="tiempoaire" ng-click="vm.collapseNavbar()">
+              <span aria-hidden="true" class="sidebar glyphicon glyphicon-tower"></span>
+              TIEMPO AIRE
+            </a>
+        </li>
+        <li>
+            <a ui-sref="chips" ng-click="vm.collapseNavbar()">
+              <span aria-hidden="true" class="sidebar glyphicon glyphicon-tower"></span>
+              CHIPS
+            </a>
+        </li>
+        <li>
+            <a ui-sref="planestarifarios" ng-click="vm.collapseNavbar()">
+              <span aria-hidden="true" class="sidebar glyphicon glyphicon-piggy-bank"></span>
+              PLANES TARIFARIOS
+            </a>
+        </li>
+        <li>
+            <a ui-sref="diagnostico" ng-click="vm.collapseNavbar()">
+              <span aria-hidden="true" class="sidebar glyphicon glyphicon-piggy-bank"></span>
+              DIAGNOSTICO
+            </a>
+        </li>
+        <li>
+            <a ui-sref="liberaciones" ng-click="vm.collapseNavbar()">
+              <span aria-hidden="true" class="sidebar glyphicon glyphicon-piggy-bank"></span>
+              LIBERACIONES
+            </a>
+        </li>
+        <li>
+            <a ui-sref="accesorios" ng-click="vm.collapseNavbar()">
+              <span aria-hidden="true" class="sidebar glyphicon glyphicon-tower"></span>
+              ACCESORIOS
+            </a>
+        </li>
+        <!-- <li>
+            <a href="#">
+              <span aria-hidden="true" class="sidebar glyphicon glyphicon-tower"></span>
+              REPARACIONES
+            </a>
+        </li>
+        <li>
+            <a href="#">
+              <span aria-hidden="true" class="sidebar glyphicon glyphicon-tower"></span>
+              DUDAS
+            </a>
+        </li>
+        <li>
+            <a href="#">
+              <span aria-hidden="true" class="sidebar glyphicon glyphicon-tower"></span>
+              REPORTES
+            </a>
+        </li> -->
+    </ul>
+</div>

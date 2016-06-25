@@ -1,0 +1,41 @@
+div.col-md-4.informacion-liberacion>table {
+    background-color: white;
+    box-shadow: 0px 4px 7px gray;
+}
+td.estado-operacion{
+    background-color: #3AB54A;
+    color: white;
+    text-align: center;
+    vertical-align: middle !important;
+}
+td.no-operacion {
+    background-color: #607D8B;
+    color: #CFD8DD;
+    font-size: 18px;
+    text-align: center;
+    vertical-align: middle !important;
+}
+td.nombre-parametro{
+    font-weight: bold;
+    text-align: right;
+}
+td.acciones {
+    font-size: 26px;
+    text-align: left;
+}
+td.valor-parametro{
+    text-align: left;
+}
+.buscador-liberaciones{
+    margin-bottom: 16px;
+}
+span.botones{
+    cursor: pointer;
+}
+.informacion-liberacion>table{
+    min-height: 220px;
+}
+span.download-speed{
+    font-size: 20px;
+    font-weight: bolder;
+}
