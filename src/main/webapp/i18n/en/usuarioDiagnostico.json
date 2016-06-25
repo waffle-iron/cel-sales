@@ -1,0 +1,24 @@
+{
+    "celSalesApp": {
+        "usuarioDiagnostico" : {
+            "home": {
+                "title": "Usuario Diagnosticos",
+                "createLabel": "Create a new Usuario Diagnostico",
+                "createOrEditLabel": "Create or edit a Usuario Diagnostico",
+                "search": "Search for Usuario Diagnostico"
+            },
+            "created": "A new Usuario Diagnostico is created with identifier {{ param }}",
+            "updated": "A Usuario Diagnostico is updated with identifier {{ param }}",
+            "deleted": "A Usuario Diagnostico is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Usuario Diagnostico {{ id }}?"
+            },
+            "detail": {
+                "title": "Usuario Diagnostico"
+            },
+            "esCreador": "Es Creador",
+            "diagnostico": "Diagnostico",
+            "user": "User"
+        }
+    }
+}

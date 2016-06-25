@@ -1,0 +1,84 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myAppNoOfcLabel" translate="celSalesApp.appNoOfc.home.createOrEditLabel">Create or edit a App No Ofc</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.appNoOfc.id">
+            <label for="id" translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.appNoOfc.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="celSalesApp.appNoOfc.nombre" for="field_nombre">Nombre</label>
+            <input type="text" class="form-control" name="nombre" id="field_nombre"
+                    ng-model="vm.appNoOfc.nombre"
+                     />
+        </div>
+        <div class="form-group" ngf-drop ngf-change="vm.setIcono($file, vm.appNoOfc)" ngf-pattern="'image/*'">
+            <label class="control-label" translate="celSalesApp.appNoOfc.icono" for="field_icono">Icono</label>
+            <div>
+                <img data-ng-src="{{'data:' + vm.appNoOfc.iconoContentType + ';base64,' + vm.appNoOfc.icono}}" style="max-height: 100px;" ng-if="vm.appNoOfc.icono"/>
+                <div ng-if="vm.appNoOfc.icono" class="help-block clearfix">
+                    <span class="pull-left">{{vm.appNoOfc.iconoContentType}}, {{vm.byteSize(vm.appNoOfc.icono)}}</span>
+                    <button ng-click="vm.appNoOfc.icono=null;vm.appNoOfc.iconoContentType=null;"
+                            class="btn btn-default btn-xs pull-right">
+                        <span class="glyphicon glyphicon-remove"></span>
+                    </button>
+                </div>
+                <button type="file" ngf-select class="btn btn-default btn-block"
+                        ngf-change="vm.setIcono($file, vm.appNoOfc)" accept="image/*" translate="entity.action.addimage">
+                    Add image
+                </button>
+            </div>
+            <input type="hidden" class="form-control" name="icono" id="field_icono"
+                    ng-model="vm.appNoOfc.icono"
+                     />
+            <input type="hidden" class="form-control" name="iconoContentType" id="field_iconoContentType"
+                    ng-model="vm.appNoOfc.iconoContentType" />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="celSalesApp.appNoOfc.version" for="field_version">Version</label>
+            <input type="text" class="form-control" name="version" id="field_version"
+                    ng-model="vm.appNoOfc.version"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="celSalesApp.appNoOfc.empaquetado" for="field_empaquetado">Empaquetado</label>
+            <input type="text" class="form-control" name="empaquetado" id="field_empaquetado"
+                    ng-model="vm.appNoOfc.empaquetado"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="celSalesApp.appNoOfc.fechaInstalacion" for="field_fechaInstalacion">Fecha Instalacion</label>
+            <input type="text" class="form-control" name="fechaInstalacion" id="field_fechaInstalacion"
+                    ng-model="vm.appNoOfc.fechaInstalacion"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="celSalesApp.appNoOfc.fechaModificacion" for="field_fechaModificacion">Fecha Modificacion</label>
+            <input type="text" class="form-control" name="fechaModificacion" id="field_fechaModificacion"
+                    ng-model="vm.appNoOfc.fechaModificacion"
+                     />
+        </div>
+
+        <div class="form-group">
+            <label translate="celSalesApp.appNoOfc.diagnostico" for="field_diagnostico">Diagnostico</label>
+            <select class="form-control" id="field_diagnostico" name="diagnostico" ng-model="vm.appNoOfc.diagnostico" ng-options="diagnostico as diagnostico.id for diagnostico in vm.diagnosticos track by diagnostico.id">
+                <option value=""></option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

@@ -1,0 +1,26 @@
+
+<div>
+    <h2><span translate="celSalesApp.telefonoDiagnostico.detail.title">Telefono Diagnostico</span> {{vm.telefonoDiagnostico.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span translate="celSalesApp.telefonoDiagnostico.fechaCreacion">Fecha Creacion</span></dt>
+        <dd>
+            <span>{{vm.telefonoDiagnostico.fechaCreacion}}</span>
+        </dd>
+        <dt><span translate="celSalesApp.telefonoDiagnostico.diagnostico">Diagnostico</span></dt>
+        <dd>
+            <a ui-sref="diagnostico-detail({id:vm.telefonoDiagnostico.diagnostico.id})">{{vm.telefonoDiagnostico.diagnostico.id}}</a>
+        </dd>
+        <dt><span translate="celSalesApp.telefonoDiagnostico.telefono">Telefono</span></dt>
+        <dd>
+            <a ui-sref="telefono-detail({id:vm.telefonoDiagnostico.telefono.id})">{{vm.telefonoDiagnostico.telefono.id}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

@@ -1,0 +1,19 @@
+{
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "nombre",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "logo",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "image"
+        }
+    ],
+    "changelogDate": "20160625002944",
+    "dto": "mapstruct",
+    "service": "serviceImpl",
+    "entityTableName": "carrier",
+    "pagination": "infinite-scroll"
+}

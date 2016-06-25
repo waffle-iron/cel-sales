@@ -1,0 +1,28 @@
+{
+    "celSalesApp": {
+        "appNoOfc" : {
+            "home": {
+                "title": "App No Ofcs",
+                "createLabel": "Create a new App No Ofc",
+                "createOrEditLabel": "Create or edit a App No Ofc",
+                "search": "Search for App No Ofc"
+            },
+            "created": "A new App No Ofc is created with identifier {{ param }}",
+            "updated": "A App No Ofc is updated with identifier {{ param }}",
+            "deleted": "A App No Ofc is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete App No Ofc {{ id }}?"
+            },
+            "detail": {
+                "title": "App No Ofc"
+            },
+            "nombre": "Nombre",
+            "icono": "Icono",
+            "version": "Version",
+            "empaquetado": "Empaquetado",
+            "fechaInstalacion": "Fecha Instalacion",
+            "fechaModificacion": "Fecha Modificacion",
+            "diagnostico": "Diagnostico"
+        }
+    }
+}

@@ -1,0 +1,66 @@
+
+<div>
+    <h2><span translate="celSalesApp.diagnostico.detail.title">Diagnostico</span> {{vm.diagnostico.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span translate="celSalesApp.diagnostico.imei">Imei</span></dt>
+        <dd>
+            <span>{{vm.diagnostico.imei}}</span>
+        </dd>
+        <dt><span translate="celSalesApp.diagnostico.serial">Serial</span></dt>
+        <dd>
+            <span>{{vm.diagnostico.serial}}</span>
+        </dd>
+        <dt><span translate="celSalesApp.diagnostico.tempBateria">Temp Bateria</span></dt>
+        <dd>
+            <span>{{vm.diagnostico.tempBateria}}</span>
+        </dd>
+        <dt><span translate="celSalesApp.diagnostico.tecBateria">Tec Bateria</span></dt>
+        <dd>
+            <span>{{vm.diagnostico.tecBateria}}</span>
+        </dd>
+        <dt><span translate="celSalesApp.diagnostico.voltBateria">Volt Bateria</span></dt>
+        <dd>
+            <span>{{vm.diagnostico.voltBateria}}</span>
+        </dd>
+        <dt><span translate="celSalesApp.diagnostico.capBateria">Cap Bateria</span></dt>
+        <dd>
+            <span>{{vm.diagnostico.capBateria}}</span>
+        </dd>
+        <dt><span translate="celSalesApp.diagnostico.fuenteEnergia">Fuente Energia</span></dt>
+        <dd>
+            <span>{{vm.diagnostico.fuenteEnergia}}</span>
+        </dd>
+        <dt><span translate="celSalesApp.diagnostico.versionSO">Version SO</span></dt>
+        <dd>
+            <span>{{vm.diagnostico.versionSO}}</span>
+        </dd>
+        <dt><span translate="celSalesApp.diagnostico.estadoBateria">Estado Bateria</span></dt>
+        <dd>
+            <span translate="{{'celSalesApp.EstadoBateria.' + vm.diagnostico.estadoBateria}}">{{vm.diagnostico.estadoBateria}}</span>
+        </dd>
+        <dt><span translate="celSalesApp.diagnostico.almInternoTotal">Alm Interno Total</span></dt>
+        <dd>
+            <span>{{vm.diagnostico.almInternoTotal}}</span>
+        </dd>
+        <dt><span translate="celSalesApp.diagnostico.almInternoDisp">Alm Interno Disp</span></dt>
+        <dd>
+            <span>{{vm.diagnostico.almInternoDisp}}</span>
+        </dd>
+        <dt><span translate="celSalesApp.diagnostico.almExternoTotal">Alm Externo Total</span></dt>
+        <dd>
+            <span>{{vm.diagnostico.almExternoTotal}}</span>
+        </dd>
+        <dt><span translate="celSalesApp.diagnostico.almExternoDisp">Alm Externo Disp</span></dt>
+        <dd>
+            <span>{{vm.diagnostico.almExternoDisp}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

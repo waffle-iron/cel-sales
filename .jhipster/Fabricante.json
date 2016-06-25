@@ -1,0 +1,19 @@
+{
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "nombre",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "imagen",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "image"
+        }
+    ],
+    "changelogDate": "20160625002841",
+    "dto": "mapstruct",
+    "service": "serviceImpl",
+    "entityTableName": "fabricante",
+    "pagination": "infinite-scroll"
+}

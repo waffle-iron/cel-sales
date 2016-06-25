@@ -1,0 +1,34 @@
+{
+    "relationships": [
+        {
+            "relationshipName": "fabricante",
+            "otherEntityName": "fabricante",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "marca",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "nombre",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "modelo",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "imagen",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "image"
+        }
+    ],
+    "changelogDate": "20160625002721",
+    "dto": "mapstruct",
+    "service": "serviceImpl",
+    "entityTableName": "telefono",
+    "pagination": "infinite-scroll"
+}

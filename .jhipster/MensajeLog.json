@@ -1,0 +1,29 @@
+{
+    "relationships": [
+        {
+            "relationshipName": "diagnostico",
+            "otherEntityName": "diagnostico",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "tipo",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "contenido",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "fecha",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20160624235818",
+    "dto": "no",
+    "service": "no",
+    "entityTableName": "mensaje_log",
+    "pagination": "pager"
+}

@@ -1,0 +1,118 @@
+entity UsuarioDiagnostico{
+	esCreador Boolean
+}
+
+entity MensajeLog{
+	tipo String,
+    contenido String,
+    fecha String
+}
+
+entity Diagnostico{
+	imei String,
+    serial String,
+    tempBateria String,
+    tecBateria String,
+    voltBateria String,
+    capBateria String,
+    fuenteEnergia String,
+    versionSO String,
+    estadoBateria EstadoBateria,
+    almInternoTotal String,
+    almInternoDisp String,
+    almExternoTotal String,
+    almExternoDisp String
+}
+
+entity AppNoOfc{
+	nombre String,
+    icono ImageBlob,
+    version String,
+    empaquetado String,
+    fechaInstalacion String,
+    fechaModificacion String
+}
+
+entity TelefonoDiagnostico{
+	fechaCreacion String
+}
+
+entity Telefono{
+	marca String,
+    nombre String,
+    modelo String,
+    imagen ImageBlob
+}
+
+entity Fabricante{
+    nombre String,
+    imagen ImageBlob
+}
+
+entity DiagnosticoCarrier{
+    esOrigen Boolean
+}
+
+entity Carrier{
+    nombre String,
+    logo ImageBlob
+}
+
+enum EstadoBateria {
+    BATTERY_HEALTH_COLD, 
+    BATTERY_HEALTH_DEAD, 
+    BATTERY_HEALTH_GOOD,
+    BATTERY_HEALTH_OVER_VOLTAGE,
+    BATTERY_HEALTH_OVERHEAT,
+    BATTERY_HEALTH_UNSPECIFIED_FAILURE,
+    BATTERY_HEALTH_UNKNOWN
+}
+
+relationship ManyToOne {
+  MensajeLog{diagnostico} to Diagnostico
+}
+
+relationship ManyToOne {
+  AppNoOfc{diagnostico} to Diagnostico
+}
+
+relationship ManyToOne {
+  Telefono{fabricante} to Fabricante
+}
+
+relationship ManyToOne {
+  UsuarioDiagnostico{diagnostico} to Diagnostico
+}
+
+relationship ManyToOne {
+  DiagnosticoCarrier{diagnostico} to Diagnostico
+}
+
+relationship ManyToOne {
+  DiagnosticoCarrier{carrier} to Carrier
+}
+
+relationship ManyToOne {
+  TelefonoDiagnostico{diagnostico} to Diagnostico
+}
+
+relationship ManyToOne {
+  TelefonoDiagnostico{telefono} to Telefono
+}
+
+paginate all with infinite-scroll
+
+dto all with mapstruct
+
+service all with serviceImpl
+
+skipClient for UsuarioDiagnostico
+skipClient for TelefonoDiagnostico
+skipClient for DiagnosticoCarrier
+skipClient for MensajeLog
+skipClient for AppNoOfc
+
+
+
+
+	

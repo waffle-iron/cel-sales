@@ -1,0 +1,24 @@
+{
+    "celSalesApp": {
+        "telefonoDiagnostico" : {
+            "home": {
+                "title": "Telefono Diagnosticos",
+                "createLabel": "Crear nuevo Telefono Diagnostico",
+                "createOrEditLabel": "Crear o editar Telefono Diagnostico",
+                "search": "Search for Telefono Diagnostico"
+            },
+            "created": "Un nuevo Telefono Diagnostico ha sido creado con el identificador {{ param }}",
+            "updated": "Un Telefono Diagnostico ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Telefono Diagnostico ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Telefono Diagnostico {{ id }}?"
+            },
+            "detail": {
+                "title": "Telefono Diagnostico"
+            },
+            "fechaCreacion": "Fecha Creacion",
+            "diagnostico": "Diagnostico",
+            "telefono": "Telefono"
+        }
+    }
+}

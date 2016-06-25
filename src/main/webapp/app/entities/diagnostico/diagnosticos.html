@@ -1,0 +1,80 @@
+<div>
+    <h2 translate="celSalesApp.diagnostico.home.title">Diagnosticos</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="diagnostico.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  translate="celSalesApp.diagnostico.home.createLabel">
+                        Create new Diagnostico
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.reset()">
+                    <th jh-sort-by="id"><span translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="imei"><span translate="celSalesApp.diagnostico.imei">Imei</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="serial"><span translate="celSalesApp.diagnostico.serial">Serial</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="tempBateria"><span translate="celSalesApp.diagnostico.tempBateria">Temp Bateria</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="tecBateria"><span translate="celSalesApp.diagnostico.tecBateria">Tec Bateria</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="voltBateria"><span translate="celSalesApp.diagnostico.voltBateria">Volt Bateria</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="capBateria"><span translate="celSalesApp.diagnostico.capBateria">Cap Bateria</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="fuenteEnergia"><span translate="celSalesApp.diagnostico.fuenteEnergia">Fuente Energia</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="versionSO"><span translate="celSalesApp.diagnostico.versionSO">Version SO</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="estadoBateria"><span translate="celSalesApp.diagnostico.estadoBateria">Estado Bateria</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="almInternoTotal"><span translate="celSalesApp.diagnostico.almInternoTotal">Alm Interno Total</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="almInternoDisp"><span translate="celSalesApp.diagnostico.almInternoDisp">Alm Interno Disp</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="almExternoTotal"><span translate="celSalesApp.diagnostico.almExternoTotal">Alm Externo Total</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="almExternoDisp"><span translate="celSalesApp.diagnostico.almExternoDisp">Alm Externo Disp</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody infinite-scroll="vm.loadPage(vm.page + 1)" infinite-scroll-disabled="vm.page >= vm.links['last']">
+                <tr ng-repeat="diagnostico in vm.diagnosticos track by diagnostico.id">
+                    <td><a ui-sref="diagnostico-detail({id:diagnostico.id})">{{diagnostico.id}}</a></td>
+                    <td>{{diagnostico.imei}}</td>
+                    <td>{{diagnostico.serial}}</td>
+                    <td>{{diagnostico.tempBateria}}</td>
+                    <td>{{diagnostico.tecBateria}}</td>
+                    <td>{{diagnostico.voltBateria}}</td>
+                    <td>{{diagnostico.capBateria}}</td>
+                    <td>{{diagnostico.fuenteEnergia}}</td>
+                    <td>{{diagnostico.versionSO}}</td>
+                    <td translate="{{'celSalesApp.EstadoBateria.' + diagnostico.estadoBateria}}">{{diagnostico.estadoBateria}}</td>
+                    <td>{{diagnostico.almInternoTotal}}</td>
+                    <td>{{diagnostico.almInternoDisp}}</td>
+                    <td>{{diagnostico.almExternoTotal}}</td>
+                    <td>{{diagnostico.almExternoDisp}}</td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="diagnostico-detail({id:diagnostico.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="diagnostico.edit({id:diagnostico.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="diagnostico.delete({id:diagnostico.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

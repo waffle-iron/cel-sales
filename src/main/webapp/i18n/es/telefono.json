@@ -1,0 +1,26 @@
+{
+    "celSalesApp": {
+        "telefono" : {
+            "home": {
+                "title": "Telefonos",
+                "createLabel": "Crear nuevo Telefono",
+                "createOrEditLabel": "Crear o editar Telefono",
+                "search": "Search for Telefono"
+            },
+            "created": "Un nuevo Telefono ha sido creado con el identificador {{ param }}",
+            "updated": "Un Telefono ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Telefono ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Telefono {{ id }}?"
+            },
+            "detail": {
+                "title": "Telefono"
+            },
+            "marca": "Marca",
+            "nombre": "Nombre",
+            "modelo": "Modelo",
+            "imagen": "Imagen",
+            "fabricante": "Fabricante"
+        }
+    }
+}

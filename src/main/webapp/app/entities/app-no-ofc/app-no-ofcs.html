@@ -1,0 +1,75 @@
+<div>
+    <h2 translate="celSalesApp.appNoOfc.home.title">App No Ofcs</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="app-no-ofc.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  translate="celSalesApp.appNoOfc.home.createLabel">
+                        Create new App No Ofc
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr>
+                    <th><span translate="global.field.id">ID</span></th>
+                    <th><span translate="celSalesApp.appNoOfc.nombre">Nombre</span></th>
+                    <th><span translate="celSalesApp.appNoOfc.icono">Icono</span></th>
+                    <th><span translate="celSalesApp.appNoOfc.version">Version</span></th>
+                    <th><span translate="celSalesApp.appNoOfc.empaquetado">Empaquetado</span></th>
+                    <th><span translate="celSalesApp.appNoOfc.fechaInstalacion">Fecha Instalacion</span></th>
+                    <th><span translate="celSalesApp.appNoOfc.fechaModificacion">Fecha Modificacion</span></th>
+                    <th><span translate="celSalesApp.appNoOfc.diagnostico">Diagnostico</span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="appNoOfc in vm.appNoOfcs track by appNoOfc.id">
+                    <td><a ui-sref="app-no-ofc-detail({id:appNoOfc.id})">{{appNoOfc.id}}</a></td>
+                    <td>{{appNoOfc.nombre}}</td>
+                    <td>
+                        <a ng-if="appNoOfc.icono" ng-click="vm.openFile(appNoOfc.iconoContentType, appNoOfc.icono)">
+                            <img data-ng-src="{{'data:' + appNoOfc.iconoContentType + ';base64,' + appNoOfc.icono}}" style="max-height: 30px;"/>
+                        </a>
+                        <span ng-if="appNoOfc.icono">{{appNoOfc.iconoContentType}}, {{vm.byteSize(appNoOfc.icono)}}</span>
+                    </td>
+                    <td>{{appNoOfc.version}}</td>
+                    <td>{{appNoOfc.empaquetado}}</td>
+                    <td>{{appNoOfc.fechaInstalacion}}</td>
+                    <td>{{appNoOfc.fechaModificacion}}</td>
+                    <td>
+                        <a ui-sref="diagnostico-detail({id:appNoOfc.diagnostico.id})">{{appNoOfc.diagnostico.id}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="app-no-ofc-detail({id:appNoOfc.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="app-no-ofc.edit({id:appNoOfc.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="app-no-ofc.delete({id:appNoOfc.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

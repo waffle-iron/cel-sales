@@ -1,0 +1,24 @@
+{
+    "celSalesApp": {
+        "diagnosticoCarrier" : {
+            "home": {
+                "title": "Diagnostico Carriers",
+                "createLabel": "Create a new Diagnostico Carrier",
+                "createOrEditLabel": "Create or edit a Diagnostico Carrier",
+                "search": "Search for Diagnostico Carrier"
+            },
+            "created": "A new Diagnostico Carrier is created with identifier {{ param }}",
+            "updated": "A Diagnostico Carrier is updated with identifier {{ param }}",
+            "deleted": "A Diagnostico Carrier is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Diagnostico Carrier {{ id }}?"
+            },
+            "detail": {
+                "title": "Diagnostico Carrier"
+            },
+            "esOrigen": "Es Origen",
+            "diagnostico": "Diagnostico",
+            "carrier": "Carrier"
+        }
+    }
+}

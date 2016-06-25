@@ -1,0 +1,27 @@
+{
+    "relationships": [
+        {
+            "relationshipName": "diagnostico",
+            "otherEntityName": "diagnostico",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "carrier",
+            "otherEntityName": "carrier",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "esOrigen",
+            "fieldType": "Boolean"
+        }
+    ],
+    "changelogDate": "20160625003049",
+    "dto": "no",
+    "service": "no",
+    "entityTableName": "diagnostico_carrier",
+    "pagination": "no"
+}

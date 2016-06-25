@@ -1,0 +1,71 @@
+<div>
+    <h2 translate="celSalesApp.telefono.home.title">Telefonos</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="telefono.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  translate="celSalesApp.telefono.home.createLabel">
+                        Create new Telefono
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.reset()">
+                    <th jh-sort-by="id"><span translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="marca"><span translate="celSalesApp.telefono.marca">Marca</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="nombre"><span translate="celSalesApp.telefono.nombre">Nombre</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="modelo"><span translate="celSalesApp.telefono.modelo">Modelo</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="imagen"><span translate="celSalesApp.telefono.imagen">Imagen</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="fabricanteId"><span translate="celSalesApp.telefono.fabricante">Fabricante</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody infinite-scroll="vm.loadPage(vm.page + 1)" infinite-scroll-disabled="vm.page >= vm.links['last']">
+                <tr ng-repeat="telefono in vm.telefonos track by telefono.id">
+                    <td><a ui-sref="telefono-detail({id:telefono.id})">{{telefono.id}}</a></td>
+                    <td>{{telefono.marca}}</td>
+                    <td>{{telefono.nombre}}</td>
+                    <td>{{telefono.modelo}}</td>
+                    <td>
+                        <a ng-if="telefono.imagen" ng-click="vm.openFile(telefono.imagenContentType, telefono.imagen)">
+                            <img data-ng-src="{{'data:' + telefono.imagenContentType + ';base64,' + telefono.imagen}}" style="max-height: 30px;"/>
+                        </a>
+                        <span ng-if="telefono.imagen">{{telefono.imagenContentType}}, {{vm.byteSize(telefono.imagen)}}</span>
+                    </td>
+                    <td>
+                        <a ui-sref="fabricante-detail({id:telefono.fabricanteId})">{{telefono.fabricanteId}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="telefono-detail({id:telefono.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="telefono.edit({id:telefono.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="telefono.delete({id:telefono.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

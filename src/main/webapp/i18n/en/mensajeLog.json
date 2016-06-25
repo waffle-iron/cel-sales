@@ -1,0 +1,25 @@
+{
+    "celSalesApp": {
+        "mensajeLog" : {
+            "home": {
+                "title": "Mensaje Logs",
+                "createLabel": "Create a new Mensaje Log",
+                "createOrEditLabel": "Create or edit a Mensaje Log",
+                "search": "Search for Mensaje Log"
+            },
+            "created": "A new Mensaje Log is created with identifier {{ param }}",
+            "updated": "A Mensaje Log is updated with identifier {{ param }}",
+            "deleted": "A Mensaje Log is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Mensaje Log {{ id }}?"
+            },
+            "detail": {
+                "title": "Mensaje Log"
+            },
+            "tipo": "Tipo",
+            "contenido": "Contenido",
+            "fecha": "Fecha",
+            "diagnostico": "Diagnostico"
+        }
+    }
+}

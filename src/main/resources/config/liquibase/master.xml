@@ -5,6 +5,21 @@
     xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
 
     <include file="classpath:config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160624235818_added_entity_MensajeLog.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160625001715_added_entity_Diagnostico.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160625002430_added_entity_AppNoOfc.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160625002721_added_entity_Telefono.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160625002841_added_entity_Fabricante.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160625002944_added_entity_Carrier.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160625003049_added_entity_DiagnosticoCarrier.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160625003143_added_entity_TelefonoDiagnostico.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160625003234_added_entity_UsuarioDiagnostico.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="classpath:config/liquibase/changelog/20160624235818_added_entity_constraints_MensajeLog.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160625002430_added_entity_constraints_AppNoOfc.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160625002721_added_entity_constraints_Telefono.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160625003234_added_entity_constraints_UsuarioDiagnostico.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160625003049_added_entity_constraints_DiagnosticoCarrier.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160625003143_added_entity_constraints_TelefonoDiagnostico.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
 </databaseChangeLog>

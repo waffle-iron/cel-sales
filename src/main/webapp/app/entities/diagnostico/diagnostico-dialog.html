@@ -1,0 +1,110 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myDiagnosticoLabel" translate="celSalesApp.diagnostico.home.createOrEditLabel">Create or edit a Diagnostico</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.diagnostico.id">
+            <label for="id" translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.diagnostico.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="celSalesApp.diagnostico.imei" for="field_imei">Imei</label>
+            <input type="text" class="form-control" name="imei" id="field_imei"
+                    ng-model="vm.diagnostico.imei"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="celSalesApp.diagnostico.serial" for="field_serial">Serial</label>
+            <input type="text" class="form-control" name="serial" id="field_serial"
+                    ng-model="vm.diagnostico.serial"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="celSalesApp.diagnostico.tempBateria" for="field_tempBateria">Temp Bateria</label>
+            <input type="text" class="form-control" name="tempBateria" id="field_tempBateria"
+                    ng-model="vm.diagnostico.tempBateria"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="celSalesApp.diagnostico.tecBateria" for="field_tecBateria">Tec Bateria</label>
+            <input type="text" class="form-control" name="tecBateria" id="field_tecBateria"
+                    ng-model="vm.diagnostico.tecBateria"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="celSalesApp.diagnostico.voltBateria" for="field_voltBateria">Volt Bateria</label>
+            <input type="text" class="form-control" name="voltBateria" id="field_voltBateria"
+                    ng-model="vm.diagnostico.voltBateria"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="celSalesApp.diagnostico.capBateria" for="field_capBateria">Cap Bateria</label>
+            <input type="text" class="form-control" name="capBateria" id="field_capBateria"
+                    ng-model="vm.diagnostico.capBateria"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="celSalesApp.diagnostico.fuenteEnergia" for="field_fuenteEnergia">Fuente Energia</label>
+            <input type="text" class="form-control" name="fuenteEnergia" id="field_fuenteEnergia"
+                    ng-model="vm.diagnostico.fuenteEnergia"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="celSalesApp.diagnostico.versionSO" for="field_versionSO">Version SO</label>
+            <input type="text" class="form-control" name="versionSO" id="field_versionSO"
+                    ng-model="vm.diagnostico.versionSO"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="celSalesApp.diagnostico.estadoBateria" for="field_estadoBateria">Estado Bateria</label>
+            <select class="form-control" name="estadoBateria" ng-model="vm.diagnostico.estadoBateria" id="field_estadoBateria">
+                <option value="BATTERY_HEALTH_COLD" translate="celSalesApp.EstadoBateria.BATTERY_HEALTH_COLD">BATTERY_HEALTH_COLD</option>
+                <option value="BATTERY_HEALTH_DEAD" translate="celSalesApp.EstadoBateria.BATTERY_HEALTH_DEAD">BATTERY_HEALTH_DEAD</option>
+                <option value="BATTERY_HEALTH_GOOD" translate="celSalesApp.EstadoBateria.BATTERY_HEALTH_GOOD">BATTERY_HEALTH_GOOD</option>
+                <option value="BATTERY_HEALTH_OVER_VOLTAGE" translate="celSalesApp.EstadoBateria.BATTERY_HEALTH_OVER_VOLTAGE">BATTERY_HEALTH_OVER_VOLTAGE</option>
+                <option value="BATTERY_HEALTH_OVERHEAT" translate="celSalesApp.EstadoBateria.BATTERY_HEALTH_OVERHEAT">BATTERY_HEALTH_OVERHEAT</option>
+                <option value="BATTERY_HEALTH_UNSPECIFIED_FAILURE" translate="celSalesApp.EstadoBateria.BATTERY_HEALTH_UNSPECIFIED_FAILURE">BATTERY_HEALTH_UNSPECIFIED_FAILURE</option>
+                <option value="BATTERY_HEALTH_UNKNOWN" translate="celSalesApp.EstadoBateria.BATTERY_HEALTH_UNKNOWN">BATTERY_HEALTH_UNKNOWN</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="celSalesApp.diagnostico.almInternoTotal" for="field_almInternoTotal">Alm Interno Total</label>
+            <input type="text" class="form-control" name="almInternoTotal" id="field_almInternoTotal"
+                    ng-model="vm.diagnostico.almInternoTotal"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="celSalesApp.diagnostico.almInternoDisp" for="field_almInternoDisp">Alm Interno Disp</label>
+            <input type="text" class="form-control" name="almInternoDisp" id="field_almInternoDisp"
+                    ng-model="vm.diagnostico.almInternoDisp"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="celSalesApp.diagnostico.almExternoTotal" for="field_almExternoTotal">Alm Externo Total</label>
+            <input type="text" class="form-control" name="almExternoTotal" id="field_almExternoTotal"
+                    ng-model="vm.diagnostico.almExternoTotal"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="celSalesApp.diagnostico.almExternoDisp" for="field_almExternoDisp">Alm Externo Disp</label>
+            <input type="text" class="form-control" name="almExternoDisp" id="field_almExternoDisp"
+                    ng-model="vm.diagnostico.almExternoDisp"
+                     />
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

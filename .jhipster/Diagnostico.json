@@ -1,0 +1,63 @@
+{
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "imei",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "serial",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "tempBateria",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "tecBateria",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "voltBateria",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "capBateria",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "fuenteEnergia",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "versionSO",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "estadoBateria",
+            "fieldType": "EstadoBateria",
+            "fieldValues": "BATTERY_HEALTH_COLD,BATTERY_HEALTH_DEAD,BATTERY_HEALTH_GOOD,BATTERY_HEALTH_OVER_VOLTAGE,BATTERY_HEALTH_OVERHEAT,BATTERY_HEALTH_UNSPECIFIED_FAILURE,BATTERY_HEALTH_UNKNOWN"
+        },
+        {
+            "fieldName": "almInternoTotal",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "almInternoDisp",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "almExternoTotal",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "almExternoDisp",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20160625001715",
+    "dto": "mapstruct",
+    "service": "serviceImpl",
+    "entityTableName": "diagnostico",
+    "pagination": "infinite-scroll"
+}

@@ -1,0 +1,63 @@
+<div>
+    <h2 translate="celSalesApp.fabricante.home.title">Fabricantes</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="fabricante.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  translate="celSalesApp.fabricante.home.createLabel">
+                        Create new Fabricante
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.reset()">
+                    <th jh-sort-by="id"><span translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="nombre"><span translate="celSalesApp.fabricante.nombre">Nombre</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="imagen"><span translate="celSalesApp.fabricante.imagen">Imagen</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody infinite-scroll="vm.loadPage(vm.page + 1)" infinite-scroll-disabled="vm.page >= vm.links['last']">
+                <tr ng-repeat="fabricante in vm.fabricantes track by fabricante.id">
+                    <td><a ui-sref="fabricante-detail({id:fabricante.id})">{{fabricante.id}}</a></td>
+                    <td>{{fabricante.nombre}}</td>
+                    <td>
+                        <a ng-if="fabricante.imagen" ng-click="vm.openFile(fabricante.imagenContentType, fabricante.imagen)">
+                            <img data-ng-src="{{'data:' + fabricante.imagenContentType + ';base64,' + fabricante.imagen}}" style="max-height: 30px;"/>
+                        </a>
+                        <span ng-if="fabricante.imagen">{{fabricante.imagenContentType}}, {{vm.byteSize(fabricante.imagen)}}</span>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="fabricante-detail({id:fabricante.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="fabricante.edit({id:fabricante.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="fabricante.delete({id:fabricante.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

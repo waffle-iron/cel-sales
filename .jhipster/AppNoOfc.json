@@ -1,0 +1,42 @@
+{
+    "relationships": [
+        {
+            "relationshipName": "diagnostico",
+            "otherEntityName": "diagnostico",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "nombre",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "icono",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "image"
+        },
+        {
+            "fieldName": "version",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "empaquetado",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "fechaInstalacion",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "fechaModificacion",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20160625002430",
+    "dto": "no",
+    "service": "no",
+    "entityTableName": "app_no_ofc",
+    "pagination": "no"
+}

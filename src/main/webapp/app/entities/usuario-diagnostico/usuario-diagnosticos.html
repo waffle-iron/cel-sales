@@ -1,0 +1,64 @@
+<div>
+    <h2 translate="celSalesApp.usuarioDiagnostico.home.title">Usuario Diagnosticos</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="usuario-diagnostico.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  translate="celSalesApp.usuarioDiagnostico.home.createLabel">
+                        Create new Usuario Diagnostico
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr>
+                    <th><span translate="global.field.id">ID</span></th>
+                    <th><span translate="celSalesApp.usuarioDiagnostico.esCreador">Es Creador</span></th>
+                    <th><span translate="celSalesApp.usuarioDiagnostico.diagnostico">Diagnostico</span></th>
+                    <th><span translate="celSalesApp.usuarioDiagnostico.user">User</span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="usuarioDiagnostico in vm.usuarioDiagnosticos track by usuarioDiagnostico.id">
+                    <td><a ui-sref="usuario-diagnostico-detail({id:usuarioDiagnostico.id})">{{usuarioDiagnostico.id}}</a></td>
+                    <td>{{usuarioDiagnostico.esCreador}}</td>
+                    <td>
+                        <a ui-sref="diagnostico-detail({id:usuarioDiagnostico.diagnostico.id})">{{usuarioDiagnostico.diagnostico.id}}</a>
+                    </td>
+                    <td>
+                        {{usuarioDiagnostico.user.id}}
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="usuario-diagnostico-detail({id:usuarioDiagnostico.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="usuario-diagnostico.edit({id:usuarioDiagnostico.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="usuario-diagnostico.delete({id:usuarioDiagnostico.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

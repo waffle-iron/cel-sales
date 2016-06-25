@@ -1,0 +1,54 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myCarrierLabel" translate="celSalesApp.carrier.home.createOrEditLabel">Create or edit a Carrier</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.carrier.id">
+            <label for="id" translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.carrier.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="celSalesApp.carrier.nombre" for="field_nombre">Nombre</label>
+            <input type="text" class="form-control" name="nombre" id="field_nombre"
+                    ng-model="vm.carrier.nombre"
+                     />
+        </div>
+        <div class="form-group" ngf-drop ngf-change="vm.setLogo($file, vm.carrier)" ngf-pattern="'image/*'">
+            <label class="control-label" translate="celSalesApp.carrier.logo" for="field_logo">Logo</label>
+            <div>
+                <img data-ng-src="{{'data:' + vm.carrier.logoContentType + ';base64,' + vm.carrier.logo}}" style="max-height: 100px;" ng-if="vm.carrier.logo"/>
+                <div ng-if="vm.carrier.logo" class="help-block clearfix">
+                    <span class="pull-left">{{vm.carrier.logoContentType}}, {{vm.byteSize(vm.carrier.logo)}}</span>
+                    <button ng-click="vm.carrier.logo=null;vm.carrier.logoContentType=null;"
+                            class="btn btn-default btn-xs pull-right">
+                        <span class="glyphicon glyphicon-remove"></span>
+                    </button>
+                </div>
+                <button type="file" ngf-select class="btn btn-default btn-block"
+                        ngf-change="vm.setLogo($file, vm.carrier)" accept="image/*" translate="entity.action.addimage">
+                    Add image
+                </button>
+            </div>
+            <input type="hidden" class="form-control" name="logo" id="field_logo"
+                    ng-model="vm.carrier.logo"
+                     />
+            <input type="hidden" class="form-control" name="logoContentType" id="field_logoContentType"
+                    ng-model="vm.carrier.logoContentType" />
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

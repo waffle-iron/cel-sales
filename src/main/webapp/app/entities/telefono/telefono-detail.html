@@ -1,0 +1,39 @@
+
+<div>
+    <h2><span translate="celSalesApp.telefono.detail.title">Telefono</span> {{vm.telefono.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span translate="celSalesApp.telefono.marca">Marca</span></dt>
+        <dd>
+            <span>{{vm.telefono.marca}}</span>
+        </dd>
+        <dt><span translate="celSalesApp.telefono.nombre">Nombre</span></dt>
+        <dd>
+            <span>{{vm.telefono.nombre}}</span>
+        </dd>
+        <dt><span translate="celSalesApp.telefono.modelo">Modelo</span></dt>
+        <dd>
+            <span>{{vm.telefono.modelo}}</span>
+        </dd>
+        <dt><span translate="celSalesApp.telefono.imagen">Imagen</span></dt>
+        <dd>
+            <div ng-if="vm.telefono.imagen">
+                <a ng-click="vm.openFile(vm.telefono.imagenContentType, vm.telefono.imagen)">
+                    <img data-ng-src="{{'data:' + vm.telefono.imagenContentType + ';base64,' + vm.telefono.imagen}}" style="max-width: 100%;"/>
+                </a>
+                {{vm.telefono.imagenContentType}}, {{vm.byteSize(vm.telefono.imagen)}}
+            </div>
+        </dd>
+        <dt><span translate="celSalesApp.telefono.fabricante">Fabricante</span></dt>
+        <dd>
+            <a ui-sref="fabricante-detail({id:vm.telefono.fabricanteId})">{{vm.telefono.fabricanteId}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

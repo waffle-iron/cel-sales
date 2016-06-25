@@ -7,6 +7,15 @@
             "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
             "entities": {
                 "main": "Entidades",
+                "mensajeLog": "Mensaje Log",
+                "diagnostico": "Diagnostico",
+                "appNoOfc": "App No Ofc",
+                "telefono": "Telefono",
+                "fabricante": "Fabricante",
+                "carrier": "Carrier",
+                "diagnosticoCarrier": "Diagnostico Carrier",
+                "telefonoDiagnostico": "Telefono Diagnostico",
+                "usuarioDiagnostico": "Usuario Diagnostico",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

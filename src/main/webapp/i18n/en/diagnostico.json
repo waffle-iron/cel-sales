@@ -1,0 +1,34 @@
+{
+    "celSalesApp": {
+        "diagnostico" : {
+            "home": {
+                "title": "Diagnosticos",
+                "createLabel": "Create a new Diagnostico",
+                "createOrEditLabel": "Create or edit a Diagnostico",
+                "search": "Search for Diagnostico"
+            },
+            "created": "A new Diagnostico is created with identifier {{ param }}",
+            "updated": "A Diagnostico is updated with identifier {{ param }}",
+            "deleted": "A Diagnostico is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Diagnostico {{ id }}?"
+            },
+            "detail": {
+                "title": "Diagnostico"
+            },
+            "imei": "Imei",
+            "serial": "Serial",
+            "tempBateria": "Temp Bateria",
+            "tecBateria": "Tec Bateria",
+            "voltBateria": "Volt Bateria",
+            "capBateria": "Cap Bateria",
+            "fuenteEnergia": "Fuente Energia",
+            "versionSO": "Version SO",
+            "estadoBateria": "Estado Bateria",
+            "almInternoTotal": "Alm Interno Total",
+            "almInternoDisp": "Alm Interno Disp",
+            "almExternoTotal": "Alm Externo Total",
+            "almExternoDisp": "Alm Externo Disp"
+        }
+    }
+}

@@ -1,0 +1,27 @@
+
+<div>
+    <h2><span translate="celSalesApp.fabricante.detail.title">Fabricante</span> {{vm.fabricante.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span translate="celSalesApp.fabricante.nombre">Nombre</span></dt>
+        <dd>
+            <span>{{vm.fabricante.nombre}}</span>
+        </dd>
+        <dt><span translate="celSalesApp.fabricante.imagen">Imagen</span></dt>
+        <dd>
+            <div ng-if="vm.fabricante.imagen">
+                <a ng-click="vm.openFile(vm.fabricante.imagenContentType, vm.fabricante.imagen)">
+                    <img data-ng-src="{{'data:' + vm.fabricante.imagenContentType + ';base64,' + vm.fabricante.imagen}}" style="max-width: 100%;"/>
+                </a>
+                {{vm.fabricante.imagenContentType}}, {{vm.byteSize(vm.fabricante.imagen)}}
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

@@ -1,0 +1,23 @@
+{
+    "celSalesApp": {
+        "carrier" : {
+            "home": {
+                "title": "Carriers",
+                "createLabel": "Crear nuevo Carrier",
+                "createOrEditLabel": "Crear o editar Carrier",
+                "search": "Search for Carrier"
+            },
+            "created": "Un nuevo Carrier ha sido creado con el identificador {{ param }}",
+            "updated": "Un Carrier ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Carrier ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Carrier {{ id }}?"
+            },
+            "detail": {
+                "title": "Carrier"
+            },
+            "nombre": "Nombre",
+            "logo": "Logo"
+        }
+    }
+}
