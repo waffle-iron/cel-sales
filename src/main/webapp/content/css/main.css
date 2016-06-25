@@ -46,7 +46,7 @@ Version number in navbar
 ========================================================================== */
 .navbar-version {
     font-size: 16px;
-    color: #ccc
+    color: #fff
 }
 
 /* ==========================================================================
@@ -326,8 +326,30 @@ ui bootstrap tweaks
 
 
 /* KIIBAL SIDE CODE */
+/*.navbar-default .navbar-nav > .active > a {
+    background-color: #e7e7e7;
+}*/
+
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+    /* color: #555; */
+    background-color: #fff !important;
+}
+div.app-container{
+  padding-left: 66px;
+}
+.panel-default > .panel-heading {
+    color: #989898;
+    background-color: transparent;
+    border: 0px transparent;
+}
+hr {
+    margin-top: 5px;
+    margin-bottom: 0px;
+    border: 0;
+    border-top: 1px solid #eee;
+}
 #wrapper {
-    padding-left: 0;
+    /*padding-left: 0;*/
     -webkit-transition: all 0.5s ease;
     -moz-transition: all 0.5s ease;
     -o-transition: all 0.5s ease;
@@ -335,22 +357,22 @@ ui bootstrap tweaks
 }
 
 #wrapper.toggled {
-    padding-left: 250px;
+  padding-left: 250px;
 }
 
 #sidebar-wrapper {
-    z-index: 1000;
-    position: fixed;
-    left: 250px;
-    width: 0;
-    height: 100%;
-    margin-left: -250px;
-    overflow-y: auto;
-    background: #26282F;
-    -webkit-transition: all 0.5s ease;
-    -moz-transition: all 0.5s ease;
-    -o-transition: all 0.5s ease;
-    transition: all 0.5s ease;
+  z-index: 1000;
+  position: fixed;
+  left: 250px;
+  width: 0;
+  height: 100%;
+  margin-left: -250px;
+  overflow-y: auto;
+  background: #26282F;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
 }
 
 #wrapper.toggled #sidebar-wrapper {
@@ -358,14 +380,12 @@ ui bootstrap tweaks
 }
 
 #page-content-wrapper {
-    width: 100%;
-    position: absolute;
-    padding: 15px;
+    padding-left: 185px;
 }
 
 #wrapper.toggled #page-content-wrapper {
     position: absolute;
-    margin-right: -250px;
+    /*margin-right: -250px;*/
 }
 
 /* Sidebar Styles */
@@ -418,6 +438,10 @@ span.sidebar {
         padding-left: 0;
     }*/
 
+    /*#page-content-wrapper {
+      padding-left: 0;
+    }*/
+
     #sidebar-wrapper {
         width: 250px;
     }
@@ -428,13 +452,16 @@ span.sidebar {
 
     #page-content-wrapper {
         background-color: #F0F3F4;
-        padding: 20px;
+        /*padding: 20px;*/
         position: relative;
     }
 
     #wrapper.toggled #page-content-wrapper {
         position: relative;
         margin-right: 0;
+    }
+    .panel-title{
+      font-size: 13px;
     }
 }
 
@@ -444,6 +471,11 @@ span.sidebar {
         padding-bottom: 40px;
         padding-top: 50px;
         background-color: #F0F3F4;
+      }
+
+      h1{
+        font-size: 20px;
+        padding:10px;
       }
       
       .table{
@@ -498,7 +530,8 @@ span.sidebar {
         background-color: #F0F3F4;
       }
       .navbar{
-        background-color: #FFF;
+        /*background-color: #FFF;*/
+        background-color: #063877;
         border:none;
         box-shadow: 0 2px 2px rgba(0,0,0,0.05),0 1px 0 rgba(0,0,0,0.05);
       }
@@ -800,6 +833,12 @@ span.sidebar {
       }
 
   @media (max-width: 767px) {
+      #page-content-wrapper {
+        padding-left: 0;
+      }
+      div.app-container{
+        padding: 0;
+      }
       ul.timeline:before {
           left: 40px;
       }
@@ -835,3 +874,12 @@ span.sidebar {
       }
   }
 /* VISTA DE TIMELINE */
+
+/*DETALLE DIAGNOSTICO*/
+.widget-bateria.panel-body {
+    padding: 15px;
+    max-height: 250px;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+/*DETALLE DIAGNOSTICO*/

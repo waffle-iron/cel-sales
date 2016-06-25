@@ -15,6 +15,8 @@
     <!-- endinject -->
     <!-- endbuild -->
     <!-- build:css content/css/main.css -->
+    <!-- DANIEL -->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <link rel="stylesheet" href="content/css/main.css">
     <!-- endbuild -->
 </head>
@@ -24,8 +26,8 @@
     <![endif]-->
     <page-ribbon></page-ribbon>
     <div ui-view="navbar" ng-cloak></div>
-    <div class="container">
-        <div class="well" ui-view="content">
+    <div class="app-container">
+        <div ui-view="content">
             <!-- Angular views -->
         </div>
 
@@ -149,6 +151,22 @@
     <script src="app/entities/app-no-ofc/app-no-ofc.state.js"></script>
     <script src="app/entities/app-no-ofc/app-no-ofc.service.js"></script>
     <script src="app/entities/app-no-ofc/app-no-ofc.controller.js"></script>
+	<script src="app/daniel/tiempo-aire/tiempoaire.state.js"></script>
+    <script src="app/daniel/tiempo-aire/tiempoaire.controller.js"></script>
+    <script src="app/daniel/planes-tarifarios/planestarifarios.state.js"></script>
+    <script src="app/daniel/planes-tarifarios/planestarifarios.controller.js"></script>
+    <script src="app/daniel/liberaciones/liberaciones.state.js"></script>
+    <script src="app/daniel/liberaciones/liberaciones.controller.js"></script>
+    <script src="app/daniel/diagnostico/diagnostico.state.js"></script>
+    <script src="app/daniel/diagnostico/diagnostico.controller.js"></script>
+    <script src="app/daniel/detalle-diagnostico/detallediagnostico.state.js"></script>
+    <script src="app/daniel/detalle-diagnostico/detallediagnostico.controller.js"></script>
+    <script src="app/daniel/chips/chips.state.js"></script>
+    <script src="app/daniel/chips/chips.controller.js"></script>
+    <script src="app/daniel/chat/chat.state.js"></script>
+    <script src="app/daniel/chat/chat.controller.js"></script>
+    <script src="app/daniel/accesorios/accesorios.state.js"></script>
+    <script src="app/daniel/accesorios/accesorios.controller.js"></script>
     <script src="app/components/util/truncate-words.filter.js"></script>
     <script src="app/components/util/truncate-characters.filter.js"></script>
     <script src="app/components/util/sort-by.directive.js"></script>

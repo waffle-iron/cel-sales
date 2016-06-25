@@ -1,0 +1,154 @@
+<div ng-cloak>
+    <div id="wrapper">
+        <!-- Sidebar -->
+        <div ng-include src="'/app/daniel/sidebar.html'"></div>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-10">
+                      <h1 align="center">
+                        Administracion de pedidos de Tiempo Aire
+                        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+                          Registrar Pedido
+                        </button>
+                      </h1>
+                    </div>
+                </div>
+                <div class="table-responsive">      
+                    <table class="table" id="ordenes-venta-chips">
+                      <thead>
+                        <tr>
+                          <td align="middle">Estatus del pedido</td>
+                          <td align="middle">Fecha</td>
+                          <td align="middle">Compañia</td>
+                          <td align="middle">Cantidad</td>
+                          <td align="middle">Telefono</td>
+                          <td align="middle">Acciones</td>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td align="middle">
+                            <a class="btn btn-default btn-primary" href="#" role="button">ENVIADO</a><!-- ENVIADO | EN PROCESO | APROBADO | CANCELADO -->
+                          </td>
+                          <td align="middle">10 de Enero de 2016</td>
+                          <td align="middle">Telcel</td>
+                          <td align="middle">$20</td>
+                          <td align="middle">0445535698741</td>
+                          <td align="middle">
+                            <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+                            <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+                            <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                            <span class="glyphicon glyphicon-new-window" aria-hidden="true"></span>
+                            <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td align="middle">
+                            <a class="btn btn-default btn-warning" href="#" role="button">EN PROCESO</a><!-- ENVIADO | EN PROCESO | APROBADO | CANCELADO -->
+                          </td>
+                          <td align="middle">10 de Enero de 2016</td>
+                          <td align="middle">Telcel</td>
+                          <td align="middle">$500</td>
+                          <td align="middle">0445535698741</td>
+                          <td align="middle">
+                            <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+                            <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+                            <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                            <span class="glyphicon glyphicon-new-window" aria-hidden="true"></span>
+                            <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td align="middle">
+                            <a class="btn btn-default btn-success" href="#" role="button">APROBADO</a><!-- ENVIADO | EN PROCESO | APROBADO | CANCELADO -->
+                          </td>
+                          <td align="middle">10 de Enero de 2016</td>
+                          <td align="middle">Telcel</td>
+                          <td align="middle">$300</td>
+                          <td align="middle">0445535698741</td>
+                          <td align="middle">
+                            <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+                            <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+                            <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                            <span class="glyphicon glyphicon-new-window" aria-hidden="true"></span>
+                            <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td align="middle">
+                            <a class="btn btn-default btn-danger" href="#" role="button">CANCELADO</a><!-- ENVIADO | EN PROCESO | APROBADO | CANCELADO -->
+                          </td>
+                          <td align="middle">10 de Enero de 2016</td>
+                          <td align="middle">Telcel</td>
+                          <td align="middle">$100</td>
+                          <td align="middle">044-55-35-69-87-41</td>
+                          <td align="middle">
+                            <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+                            <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+                            <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                            <span class="glyphicon glyphicon-new-window" aria-hidden="true"></span>
+                            <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                </div>
+
+                <!-- Modal -->
+                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                          <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                        </div>
+                        <div class="modal-body">
+                          <form>
+                            <div class="form-group">
+                              <label for="compania">Compa&ntilde;ia</label>
+                              <select class="form-control" id="compania">
+                                <option>Telcel</option>
+                                <option>Movistar</option>
+                                <option>Unefon</option>
+                              </select>
+                            </div>
+                            <div class="form-group">
+                              <label for="cantidad">Cantidad</label>
+                              <input type="number" class="form-control" id="cantidad" min="1" placeholder="text">
+                            </div>
+                            <div class="form-group">
+                              <label for="direccion">Telefono</label>
+                              <input type="text" class="form-control" id="direccion" placeholder="text">
+                            </div>
+                            <div class="form-group">
+                              <label for="direccion">Confirmar Telefono</label>
+                              <input type="text" class="form-control" id="direccion" placeholder="text">
+                            </div>
+                          </form>            
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar Orden de Venta</button>
+                          <button type="submit" class="btn btn-primary" data-dismiss="modal">Enviar pedido de Orden</button>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+                <script>
+                // $(document).ready(function() {
+                // // alert('Hel');
+                // $('#ordenes-venta-chips').DataTable();
+                // });
+                // $("#menu-toggle").click(function(e) {
+                //     e.preventDefault();
+                //     $("#wrapper").toggleClass("toggled");
+                // });
+                </script>
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+    </div>
+</div>

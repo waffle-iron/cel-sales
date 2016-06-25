@@ -60,7 +60,7 @@
             </div>
         </div>
     </div>
-    <div class="well well-lg" ng-show="vm.updatingMetrics" translate="metrics.updating">Updating...</div>
+    <div class="well-lg" ng-show="vm.updatingMetrics" translate="metrics.updating">Updating...</div>
 
     <h3 translate="metrics.jvm.http.title">HTTP requests (events per second)</h3>
         <p><span translate="metrics.jvm.http.active">Active requests</span> <b>{{vm.metrics.counters['com.codahale.metrics.servlet.InstrumentedFilter.activeRequests'].count | number:0}}</b> - <span translate="metrics.jvm.http.total">Total requests</span> <b>{{vm.metrics.timers['com.codahale.metrics.servlet.InstrumentedFilter.requests'].count | number:0}}</b></p>

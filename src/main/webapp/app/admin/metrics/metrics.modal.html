@@ -19,7 +19,7 @@
                <span ng-show="show" translate="metrics.jvm.threads.dump.hide">Hide StackTrace</span>
             </a>
         </h5>
-        <div class="well" ng-show="show">
+        <div ng-show="show">
             <div ng-repeat="(stK, stV) in v.stackTrace">
                 {{stV.className}}.{{stV.methodName}}({{stV.fileName}}:{{stV.lineNumber}})
                 <span class="voffset1"></span>
