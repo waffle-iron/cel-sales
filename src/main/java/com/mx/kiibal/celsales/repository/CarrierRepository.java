@@ -11,5 +11,7 @@ import java.util.List;
  */
 @SuppressWarnings("unused")
 public interface CarrierRepository extends JpaRepository<Carrier,Long> {
+    
+    Carrier findByNombreLike(String nombre);
 
 }

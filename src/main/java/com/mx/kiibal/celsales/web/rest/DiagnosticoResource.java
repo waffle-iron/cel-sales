@@ -3,6 +3,7 @@ package com.mx.kiibal.celsales.web.rest;
 import com.codahale.metrics.annotation.Timed;
 import com.mx.kiibal.celsales.domain.Diagnostico;
 import com.mx.kiibal.celsales.service.DiagnosticoService;
+import com.mx.kiibal.celsales.web.rest.dto.DiagnosticoAppDTO;
 import com.mx.kiibal.celsales.web.rest.util.HeaderUtil;
 import com.mx.kiibal.celsales.web.rest.util.PaginationUtil;
 import com.mx.kiibal.celsales.web.rest.dto.DiagnosticoDTO;
@@ -51,12 +52,13 @@ public class DiagnosticoResource {
         method = RequestMethod.POST,
         produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
-    public ResponseEntity<DiagnosticoDTO> createDiagnostico(@RequestBody DiagnosticoDTO diagnosticoDTO) throws URISyntaxException {
+    public ResponseEntity<DiagnosticoAppDTO> createDiagnostico(
+            @RequestBody DiagnosticoAppDTO diagnosticoDTO) throws URISyntaxException {
         log.debug("REST request to save Diagnostico : {}", diagnosticoDTO);
         if (diagnosticoDTO.getId() != null) {
             return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("diagnostico", "idexists", "A new diagnostico cannot already have an ID")).body(null);
         }
-        DiagnosticoDTO result = diagnosticoService.save(diagnosticoDTO);
+        DiagnosticoAppDTO result = diagnosticoService.saveDiagnosticoApp(diagnosticoDTO);
         return ResponseEntity.created(new URI("/api/diagnosticos/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert("diagnostico", result.getId().toString()))
             .body(result);
@@ -78,7 +80,7 @@ public class DiagnosticoResource {
     public ResponseEntity<DiagnosticoDTO> updateDiagnostico(@RequestBody DiagnosticoDTO diagnosticoDTO) throws URISyntaxException {
         log.debug("REST request to update Diagnostico : {}", diagnosticoDTO);
         if (diagnosticoDTO.getId() == null) {
-            return createDiagnostico(diagnosticoDTO);
+            //return createDiagnostico(diagnosticoDTO);
         }
         DiagnosticoDTO result = diagnosticoService.save(diagnosticoDTO);
         return ResponseEntity.ok()

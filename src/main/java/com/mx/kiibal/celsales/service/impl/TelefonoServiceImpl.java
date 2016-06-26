@@ -15,6 +15,7 @@ import org.springframework.stereotype.Service;
 import javax.inject.Inject;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 /**
@@ -41,6 +42,7 @@ public class TelefonoServiceImpl implements TelefonoService{
     public TelefonoDTO save(TelefonoDTO telefonoDTO) {
         log.debug("Request to save Telefono : {}", telefonoDTO);
         Telefono telefono = telefonoMapper.telefonoDTOToTelefono(telefonoDTO);
+        telefono.setModelo(telefonoDTO.getModelo().toUpperCase());
         telefono = telefonoRepository.save(telefono);
         TelefonoDTO result = telefonoMapper.telefonoToTelefonoDTO(telefono);
         return result;
@@ -81,5 +83,10 @@ public class TelefonoServiceImpl implements TelefonoService{
     public void delete(Long id) {
         log.debug("Request to delete Telefono : {}", id);
         telefonoRepository.delete(id);
+    }
+
+    @Override
+    public Optional<Telefono> findByModelo(String modelo) {
+        return telefonoRepository.findByModelo(modelo.toUpperCase());
     }
 }

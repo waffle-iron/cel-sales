@@ -1,6 +1,7 @@
 package com.mx.kiibal.celsales.service;
 
 import com.mx.kiibal.celsales.domain.Diagnostico;
+import com.mx.kiibal.celsales.web.rest.dto.DiagnosticoAppDTO;
 import com.mx.kiibal.celsales.web.rest.dto.DiagnosticoDTO;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -43,4 +44,11 @@ public interface DiagnosticoService {
      *  @param id the id of the entity
      */
     void delete(Long id);
+    
+    /**
+     * 
+     * @param appDTO
+     * @return 
+     */
+    DiagnosticoAppDTO saveDiagnosticoApp(DiagnosticoAppDTO appDTO);
 }

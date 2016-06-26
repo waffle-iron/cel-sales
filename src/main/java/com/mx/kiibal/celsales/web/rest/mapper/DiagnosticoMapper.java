@@ -1,6 +1,7 @@
 package com.mx.kiibal.celsales.web.rest.mapper;
 
 import com.mx.kiibal.celsales.domain.*;
+import com.mx.kiibal.celsales.web.rest.dto.DiagnosticoAppDTO;
 import com.mx.kiibal.celsales.web.rest.dto.DiagnosticoDTO;
 
 import org.mapstruct.*;
@@ -19,4 +20,19 @@ public interface DiagnosticoMapper {
     Diagnostico diagnosticoDTOToDiagnostico(DiagnosticoDTO diagnosticoDTO);
 
     List<Diagnostico> diagnosticoDTOsToDiagnosticos(List<DiagnosticoDTO> diagnosticoDTOs);
+    
+    @Mapping(source = "imei",target = "imei")
+    @Mapping(source = "serial",target = "serial")
+    @Mapping(source = "battery.temperature",target = "tempBateria")
+    @Mapping(source = "battery.technology",target = "tecBateria")
+    @Mapping(source = "battery.voltage",target = "voltBateria")
+    @Mapping(source = "battery.capacity",target = "capBateria")
+    @Mapping(source = "battery.plugged.status",target = "fuenteEnergia")
+    @Mapping(source = "version",target = "versionSO")
+    @Mapping(source = "battery.health.status",target = "estadoBateria")
+    @Mapping(source = "storage.internal.total",target = "almInternoTotal")
+    @Mapping(source = "storage.internal.available",target = "almInternoDisp")
+    @Mapping(source = "storage.external.total",target = "almExternoTotal")
+    @Mapping(source = "storage.external.available",target = "almExternoDisp")
+    Diagnostico diagnosticoAppDTOToDiagnostico(DiagnosticoAppDTO diagnosticoAppDTO);
 }

@@ -15,6 +15,7 @@ import org.springframework.stereotype.Service;
 import javax.inject.Inject;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 /**
@@ -41,6 +42,7 @@ public class FabricanteServiceImpl implements FabricanteService{
     public FabricanteDTO save(FabricanteDTO fabricanteDTO) {
         log.debug("Request to save Fabricante : {}", fabricanteDTO);
         Fabricante fabricante = fabricanteMapper.fabricanteDTOToFabricante(fabricanteDTO);
+        fabricante.setNombre(fabricanteDTO.getNombre().toUpperCase());
         fabricante = fabricanteRepository.save(fabricante);
         FabricanteDTO result = fabricanteMapper.fabricanteToFabricanteDTO(fabricante);
         return result;
@@ -81,5 +83,10 @@ public class FabricanteServiceImpl implements FabricanteService{
     public void delete(Long id) {
         log.debug("Request to delete Fabricante : {}", id);
         fabricanteRepository.delete(id);
+    }
+
+    @Override
+    public Optional<Fabricante> findByNombre(String nombre) {
+        return fabricanteRepository.findByNombre(nombre.toUpperCase());
     }
 }

@@ -1,7 +1,3 @@
-entity UsuarioDiagnostico{
-	esCreador Boolean
-}
-
 entity MensajeLog{
 	tipo String,
     contenido String,
@@ -33,10 +29,6 @@ entity AppNoOfc{
     fechaModificacion String
 }
 
-entity TelefonoDiagnostico{
-	fechaCreacion String
-}
-
 entity Telefono{
 	marca String,
     nombre String,
@@ -49,13 +41,21 @@ entity Fabricante{
     imagen ImageBlob
 }
 
+entity Carrier{
+    nombre String,
+    logo ImageBlob
+}
+
 entity DiagnosticoCarrier{
     esOrigen Boolean
 }
 
-entity Carrier{
-    nombre String,
-    logo ImageBlob
+entity TelefonoDiagnostico{
+	fechaCreacion String
+}
+
+entity UsuarioDiagnostico{
+	esCreador Boolean
 }
 
 enum EstadoBateria {

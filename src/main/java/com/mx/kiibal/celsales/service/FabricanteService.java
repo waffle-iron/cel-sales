@@ -7,6 +7,7 @@ import org.springframework.data.domain.Pageable;
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Optional;
 
 /**
  * Service Interface for managing Fabricante.
@@ -43,4 +44,6 @@ public interface FabricanteService {
      *  @param id the id of the entity
      */
     void delete(Long id);
+    
+    Optional<Fabricante> findByNombre(String nombre);
 }
