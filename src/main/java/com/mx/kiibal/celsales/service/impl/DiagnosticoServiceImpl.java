@@ -21,10 +21,20 @@ import com.mx.kiibal.celsales.repository.UserRepository;
 import com.mx.kiibal.celsales.repository.UsuarioDiagnosticoRepository;
 import com.mx.kiibal.celsales.service.FabricanteService;
 import com.mx.kiibal.celsales.service.TelefonoService;
+import com.mx.kiibal.celsales.web.rest.dto.AppDataDTO;
+import com.mx.kiibal.celsales.web.rest.dto.BatteryDTO;
+import com.mx.kiibal.celsales.web.rest.dto.BluetoothDTO;
 import com.mx.kiibal.celsales.web.rest.dto.DiagnosticoAppDTO;
 import com.mx.kiibal.celsales.web.rest.dto.DiagnosticoDTO;
+import com.mx.kiibal.celsales.web.rest.dto.ExternalDTO;
 import com.mx.kiibal.celsales.web.rest.dto.FabricanteDTO;
+import com.mx.kiibal.celsales.web.rest.dto.HealthDTO;
+import com.mx.kiibal.celsales.web.rest.dto.InternalDTO;
+import com.mx.kiibal.celsales.web.rest.dto.PluggedDTO;
+import com.mx.kiibal.celsales.web.rest.dto.StatusDTO;
+import com.mx.kiibal.celsales.web.rest.dto.StorageDTO;
 import com.mx.kiibal.celsales.web.rest.dto.TelefonoDTO;
+import com.mx.kiibal.celsales.web.rest.dto.WiFiDTO;
 import com.mx.kiibal.celsales.web.rest.mapper.DiagnosticoMapper;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -263,5 +273,90 @@ public class DiagnosticoServiceImpl implements DiagnosticoService{
         
         telefonoDiagnosticoRepository.save(telefonoDiagnostico);
         
+    }
+
+    @Override
+    public DiagnosticoAppDTO findById(Long id) {
+        DiagnosticoAppDTO dto = new DiagnosticoAppDTO();
+        Diagnostico findOne = diagnosticoRepository.findOne(id);
+        
+        Optional<UsuarioDiagnostico> usuarioDiagnostico = 
+                usuarioDiagnosticoRepository.findByDiagnostico(findOne);
+        
+        List<AppNoOfc> appNoOfcs = 
+                appNoOfcRepository.findByDiagnostico(findOne);
+        
+        Optional<TelefonoDiagnostico> telefonoDiagnostico = 
+                telefonoDiagnosticoRepository.findByDiagnostico(findOne);
+        
+        Optional<DiagnosticoCarrier> diagnosticoCarrier = 
+                diagnosticoCarrierRepository.findByDiagnostico(findOne);
+        
+        dto.setAppsList(appsDomainToDTO(appNoOfcs));
+        dto.setBattery(batteryDomainToDTO(findOne));
+        dto.setBluetooth(new BluetoothDTO("", "", true)); // <----
+        dto.setBrand(""); // <----
+        dto.setCarrier(diagnosticoCarrier.get().getCarrier().getNombre());
+        dto.setEmail(usuarioDiagnostico.get().getUser().getEmail());
+        dto.setId(id);
+        dto.setImei(findOne.getImei());
+        dto.setManufacturer(telefonoDiagnostico.get().getTelefono().getFabricante().getNombre());
+        dto.setModel(telefonoDiagnostico.get().getTelefono().getModelo());
+        dto.setSerial(findOne.getSerial());
+        dto.setStorage(storageDomainToDTO(findOne));
+        dto.setVersion(findOne.getVersionSO());
+        dto.setWifi(new WiFiDTO("", true)); // <----
+                
+        return dto;
+    }
+    
+    private List<AppDataDTO> appsDomainToDTO(List<AppNoOfc> appNoOfcs){
+        List<AppDataDTO> apps = new ArrayList<>();
+        
+        appNoOfcs
+                .stream()
+                .forEach(a -> {
+                    AppDataDTO dto = 
+                            new AppDataDTO(
+                                    a.getNombre(), 
+                                    a.getEmpaquetado(), 
+                                    a.getVersion(), 
+                                    a.getFechaInstalacion(), 
+                                    a.getFechaModificacion());
+                    apps.add(dto);
+                });
+        
+        return apps;
+    }
+    
+    private BatteryDTO batteryDomainToDTO(Diagnostico diagnostico){
+        BatteryDTO batteryDTO = new BatteryDTO();
+        batteryDTO.setBatteryPct("");
+        batteryDTO.setCapacity(diagnostico.getCapBateria());
+        batteryDTO.setHealth(new HealthDTO(
+                diagnostico.getEstadoBateria().name(), 
+                diagnostico.getEstadoBateria().name())); // <----
+        batteryDTO.setPlugged(new PluggedDTO(
+                diagnostico.getFuenteEnergia(), 
+                diagnostico.getFuenteEnergia())); // <----
+        batteryDTO.setStatus(new StatusDTO("", "")); // <----
+        batteryDTO.setTechnology(diagnostico.getTecBateria());
+        batteryDTO.setTemperature(diagnostico.getTempBateria());
+        batteryDTO.setVoltage(diagnostico.getVoltBateria());
+        return batteryDTO;
+    }
+    
+    private StorageDTO storageDomainToDTO(Diagnostico diagnostico){
+        StorageDTO storageDTO = new StorageDTO();
+        
+        storageDTO.setExternal(new ExternalDTO(
+                diagnostico.getAlmExternoTotal(), 
+                diagnostico.getAlmExternoDisp()));
+        
+        storageDTO.setInternal(new InternalDTO(
+                diagnostico.getAlmInternoTotal(), 
+                diagnostico.getAlmInternoDisp()));
+        
+        return storageDTO;
     }
 }

@@ -1,5 +1,5 @@
-<div id="sidebar-wrapper">
-    <ul class="sidebar-nav">
+<div id="sidebar-wrapper" ng-controller="SideBarController as vm" ng-show="vm.isAuthenticated()">
+    <ul class="sidebar-nav" >
         <li ui-sref-active="active">
             <a ui-sref="home" ng-click="vm.collapseNavbar()">
                 <span aria-hidden="true" class="sidebar glyphicon glyphicon-home"></span>

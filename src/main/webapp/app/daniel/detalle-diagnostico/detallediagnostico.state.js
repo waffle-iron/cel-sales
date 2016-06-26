@@ -8,23 +8,28 @@
     stateConfig.$inject = ['$stateProvider'];
 
     function stateConfig($stateProvider) {
-        $stateProvider.state('detalle-diagnostico', {
-            parent: 'app',
-            url: '/',
+        $stateProvider.state('diagnostico-detail', {
+            parent: 'entity',
+            url: '/diagnostico/{id}',
             data: {
-                authorities: []
+                authorities: ['ROLE_USER'],
+                pageTitle: 'celSalesApp.diagnostico.detail.title'
             },
             views: {
                 'content@': {
                     templateUrl: 'app/daniel/detalle-diagnostico/detallediagnostico.html',
-                    controller: 'DetallediagnosticoController',
+                    controller: 'DiagnosticoDetailController',
                     controllerAs: 'vm'
                 }
             },
             resolve: {
-                mainTranslatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate,$translatePartialLoader) {
-                    $translatePartialLoader.addPart('detalle-diagnostico');
+                translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
+                    $translatePartialLoader.addPart('diagnostico');
+                    $translatePartialLoader.addPart('estadoBateria');
                     return $translate.refresh();
+                }],
+                entity: ['$stateParams', 'Diagnostico', function($stateParams, Diagnostico) {
+                    return Diagnostico.get({id : $stateParams.id}).$promise;
                 }]
             }
         });

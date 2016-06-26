@@ -117,9 +117,9 @@ public class DiagnosticoResource {
         method = RequestMethod.GET,
         produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
-    public ResponseEntity<DiagnosticoDTO> getDiagnostico(@PathVariable Long id) {
+    public ResponseEntity<DiagnosticoAppDTO> getDiagnostico(@PathVariable Long id) {
         log.debug("REST request to get Diagnostico : {}", id);
-        DiagnosticoDTO diagnosticoDTO = diagnosticoService.findOne(id);
+        DiagnosticoAppDTO diagnosticoDTO = diagnosticoService.findById(id);
         return Optional.ofNullable(diagnosticoDTO)
             .map(result -> new ResponseEntity<>(
                 result,

@@ -51,4 +51,11 @@ public interface DiagnosticoService {
      * @return 
      */
     DiagnosticoAppDTO saveDiagnosticoApp(DiagnosticoAppDTO appDTO);
+    
+    /**
+     * Obtiene la información de un diagnostico
+     * @param id
+     * @return 
+     */
+    DiagnosticoAppDTO findById(Long id);
 }
