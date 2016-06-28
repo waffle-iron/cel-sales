@@ -63,6 +63,27 @@ public class Diagnostico implements Serializable {
     @Column(name = "alm_externo_disp")
     private String almExternoDisp;
 
+    @Column(name = "estado_carga")
+    private String estadoCarga;
+
+    @Column(name = "porcentaje_carga")
+    private String porcentajeCarga;
+
+    @Column(name = "bluetooth_enabled")
+    private Boolean bluetoothEnabled;
+
+    @Column(name = "bluetooth_mac_addr")
+    private String bluetoothMacAddr;
+
+    @Column(name = "bluetooth_name")
+    private String bluetoothName;
+
+    @Column(name = "wifi_enabled")
+    private Boolean wifiEnabled;
+
+    @Column(name = "wifi_mac_addr")
+    private String wifiMacAddr;
+
     public Long getId() {
         return id;
     }
@@ -175,6 +196,62 @@ public class Diagnostico implements Serializable {
         this.almExternoDisp = almExternoDisp;
     }
 
+    public String getEstadoCarga() {
+        return estadoCarga;
+    }
+
+    public void setEstadoCarga(String estadoCarga) {
+        this.estadoCarga = estadoCarga;
+    }
+
+    public String getPorcentajeCarga() {
+        return porcentajeCarga;
+    }
+
+    public void setPorcentajeCarga(String porcentajeCarga) {
+        this.porcentajeCarga = porcentajeCarga;
+    }
+
+    public Boolean isBluetoothEnabled() {
+        return bluetoothEnabled;
+    }
+
+    public void setBluetoothEnabled(Boolean bluetoothEnabled) {
+        this.bluetoothEnabled = bluetoothEnabled;
+    }
+
+    public String getBluetoothMacAddr() {
+        return bluetoothMacAddr;
+    }
+
+    public void setBluetoothMacAddr(String bluetoothMacAddr) {
+        this.bluetoothMacAddr = bluetoothMacAddr;
+    }
+
+    public String getBluetoothName() {
+        return bluetoothName;
+    }
+
+    public void setBluetoothName(String bluetoothName) {
+        this.bluetoothName = bluetoothName;
+    }
+
+    public Boolean isWifiEnabled() {
+        return wifiEnabled;
+    }
+
+    public void setWifiEnabled(Boolean wifiEnabled) {
+        this.wifiEnabled = wifiEnabled;
+    }
+
+    public String getWifiMacAddr() {
+        return wifiMacAddr;
+    }
+
+    public void setWifiMacAddr(String wifiMacAddr) {
+        this.wifiMacAddr = wifiMacAddr;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -212,6 +289,13 @@ public class Diagnostico implements Serializable {
             ", almInternoDisp='" + almInternoDisp + "'" +
             ", almExternoTotal='" + almExternoTotal + "'" +
             ", almExternoDisp='" + almExternoDisp + "'" +
+            ", estadoCarga='" + estadoCarga + "'" +
+            ", porcentajeCarga='" + porcentajeCarga + "'" +
+            ", bluetoothEnabled='" + bluetoothEnabled + "'" +
+            ", bluetoothMacAddr='" + bluetoothMacAddr + "'" +
+            ", bluetoothName='" + bluetoothName + "'" +
+            ", wifiEnabled='" + wifiEnabled + "'" +
+            ", wifiMacAddr='" + wifiMacAddr + "'" +
             '}';
     }
 }

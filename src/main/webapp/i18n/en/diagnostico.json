@@ -28,7 +28,14 @@
             "almInternoTotal": "Alm Interno Total",
             "almInternoDisp": "Alm Interno Disp",
             "almExternoTotal": "Alm Externo Total",
-            "almExternoDisp": "Alm Externo Disp"
+            "almExternoDisp": "Alm Externo Disp",
+            "estadoCarga": "Estado Carga",
+            "porcentajeCarga": "Porcentaje Carga",
+            "bluetoothEnabled": "Bluetooth Enabled",
+            "bluetoothMacAddr": "Bluetooth Mac Addr",
+            "bluetoothName": "Bluetooth Name",
+            "wifiEnabled": "Wifi Enabled",
+            "wifiMacAddr": "Wifi Mac Addr"
         }
     }
 }

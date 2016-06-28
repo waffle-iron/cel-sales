@@ -34,5 +34,12 @@ public interface DiagnosticoMapper {
     @Mapping(source = "storage.internal.available",target = "almInternoDisp")
     @Mapping(source = "storage.external.total",target = "almExternoTotal")
     @Mapping(source = "storage.external.available",target = "almExternoDisp")
+    @Mapping(source = "battery.status.status",target = "estadoCarga")
+    @Mapping(source = "battery.batteryPct",target = "porcentajeCarga")
+    @Mapping(source = "bluetooth.name",target = "bluetoothName")
+    @Mapping(source = "bluetooth.macAddr",target = "bluetoothMacAddr")
+    @Mapping(source = "bluetooth.isEnabled",target = "bluetoothEnabled")
+    @Mapping(source = "wifi.macAddr",target = "wifiMacAddr")
+    @Mapping(source = "wifi.isEnabled",target = "wifiEnabled")
     Diagnostico diagnosticoAppDTOToDiagnostico(DiagnosticoAppDTO diagnosticoAppDTO);
 }

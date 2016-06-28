@@ -2,6 +2,7 @@
 package com.mx.kiibal.celsales.web.rest.dto;
 
 import java.io.Serializable;
+import javax.persistence.Lob;
 
 /**
  *
@@ -15,16 +16,19 @@ public class AppDataDTO implements Serializable{
     private String appVersion;
     private String appInstalled;
     private String appLastModify;
+    @Lob
+    private byte[] appEncodedIcon;
 
     public AppDataDTO() {}
 
     public AppDataDTO(String appName, String appPackage, String appVersion, 
-            String appInstalled, String appLastModify) {
+            String appInstalled, String appLastModify,byte[] appEncodedIcon) {
         this.appName = appName;
         this.appPackage = appPackage;
         this.appVersion = appVersion;
         this.appInstalled = appInstalled;
         this.appLastModify = appLastModify;
+        this.appEncodedIcon = appEncodedIcon;
     }
 
     public String getAppName() {
@@ -65,6 +69,14 @@ public class AppDataDTO implements Serializable{
 
     public void setAppLastModify(String appLastModify) {
         this.appLastModify = appLastModify;
+    }
+
+    public byte[] getAppEncodedIcon() {
+        return appEncodedIcon;
+    }
+
+    public void setAppEncodedIcon(byte[] appEncodedIcon) {
+        this.appEncodedIcon = appEncodedIcon;
     }
 
     @Override

@@ -73,6 +73,34 @@
                 <constraints nullable="true" />
             </column>
             
+            <column name="estado_carga" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            
+            <column name="porcentaje_carga" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            
+            <column name="bluetooth_enabled" type="bit">
+                <constraints nullable="true" />
+            </column>
+            
+            <column name="bluetooth_mac_addr" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            
+            <column name="bluetooth_name" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            
+            <column name="wifi_enabled" type="bit">
+                <constraints nullable="true" />
+            </column>
+            
+            <column name="wifi_mac_addr" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            
             <!-- jhipster-needle-liquibase-add-column - Jhipster will add columns here, do not remove-->
         </createTable>
         

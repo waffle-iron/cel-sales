@@ -67,7 +67,7 @@ class DiagnosticoGatlingTest extends Simulation {
             .exec(http("Create new diagnostico")
             .post("/api/diagnosticos")
             .headers(headers_http_authenticated)
-            .body(StringBody("""{"id":null, "imei":"SAMPLE_TEXT", "serial":"SAMPLE_TEXT", "tempBateria":"SAMPLE_TEXT", "tecBateria":"SAMPLE_TEXT", "voltBateria":"SAMPLE_TEXT", "capBateria":"SAMPLE_TEXT", "fuenteEnergia":"SAMPLE_TEXT", "versionSO":"SAMPLE_TEXT", "estadoBateria":null, "almInternoTotal":"SAMPLE_TEXT", "almInternoDisp":"SAMPLE_TEXT", "almExternoTotal":"SAMPLE_TEXT", "almExternoDisp":"SAMPLE_TEXT"}""")).asJSON
+            .body(StringBody("""{"id":null, "imei":"SAMPLE_TEXT", "serial":"SAMPLE_TEXT", "tempBateria":"SAMPLE_TEXT", "tecBateria":"SAMPLE_TEXT", "voltBateria":"SAMPLE_TEXT", "capBateria":"SAMPLE_TEXT", "fuenteEnergia":"SAMPLE_TEXT", "versionSO":"SAMPLE_TEXT", "estadoBateria":null, "almInternoTotal":"SAMPLE_TEXT", "almInternoDisp":"SAMPLE_TEXT", "almExternoTotal":"SAMPLE_TEXT", "almExternoDisp":"SAMPLE_TEXT", "estadoCarga":"SAMPLE_TEXT", "porcentajeCarga":"SAMPLE_TEXT", "bluetoothEnabled":null, "bluetoothMacAddr":"SAMPLE_TEXT", "bluetoothName":"SAMPLE_TEXT", "wifiEnabled":null, "wifiMacAddr":"SAMPLE_TEXT"}""")).asJSON
             .check(status.is(201))
             .check(headerRegex("Location", "(.*)").saveAs("new_diagnostico_url"))).exitHereIfFailed
             .pause(10)

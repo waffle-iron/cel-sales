@@ -62,8 +62,8 @@ public class DiagnosticoResourceIntTest {
     private static final String DEFAULT_VERSION_SO = "AAAAA";
     private static final String UPDATED_VERSION_SO = "BBBBB";
 
-    private static final EstadoBateria DEFAULT_ESTADO_BATERIA = EstadoBateria.BATTERY_HEALTH_COLD;
-    private static final EstadoBateria UPDATED_ESTADO_BATERIA = EstadoBateria.BATTERY_HEALTH_DEAD;
+    private static final EstadoBateria DEFAULT_ESTADO_BATERIA = EstadoBateria.Cold;
+    private static final EstadoBateria UPDATED_ESTADO_BATERIA = EstadoBateria.Good;
     private static final String DEFAULT_ALM_INTERNO_TOTAL = "AAAAA";
     private static final String UPDATED_ALM_INTERNO_TOTAL = "BBBBB";
     private static final String DEFAULT_ALM_INTERNO_DISP = "AAAAA";
@@ -72,6 +72,22 @@ public class DiagnosticoResourceIntTest {
     private static final String UPDATED_ALM_EXTERNO_TOTAL = "BBBBB";
     private static final String DEFAULT_ALM_EXTERNO_DISP = "AAAAA";
     private static final String UPDATED_ALM_EXTERNO_DISP = "BBBBB";
+    private static final String DEFAULT_ESTADO_CARGA = "AAAAA";
+    private static final String UPDATED_ESTADO_CARGA = "BBBBB";
+    private static final String DEFAULT_PORCENTAJE_CARGA = "AAAAA";
+    private static final String UPDATED_PORCENTAJE_CARGA = "BBBBB";
+
+    private static final Boolean DEFAULT_BLUETOOTH_ENABLED = false;
+    private static final Boolean UPDATED_BLUETOOTH_ENABLED = true;
+    private static final String DEFAULT_BLUETOOTH_MAC_ADDR = "AAAAA";
+    private static final String UPDATED_BLUETOOTH_MAC_ADDR = "BBBBB";
+    private static final String DEFAULT_BLUETOOTH_NAME = "AAAAA";
+    private static final String UPDATED_BLUETOOTH_NAME = "BBBBB";
+
+    private static final Boolean DEFAULT_WIFI_ENABLED = false;
+    private static final Boolean UPDATED_WIFI_ENABLED = true;
+    private static final String DEFAULT_WIFI_MAC_ADDR = "AAAAA";
+    private static final String UPDATED_WIFI_MAC_ADDR = "BBBBB";
 
     @Inject
     private DiagnosticoRepository diagnosticoRepository;
@@ -119,6 +135,13 @@ public class DiagnosticoResourceIntTest {
         diagnostico.setAlmInternoDisp(DEFAULT_ALM_INTERNO_DISP);
         diagnostico.setAlmExternoTotal(DEFAULT_ALM_EXTERNO_TOTAL);
         diagnostico.setAlmExternoDisp(DEFAULT_ALM_EXTERNO_DISP);
+        diagnostico.setEstadoCarga(DEFAULT_ESTADO_CARGA);
+        diagnostico.setPorcentajeCarga(DEFAULT_PORCENTAJE_CARGA);
+        diagnostico.setBluetoothEnabled(DEFAULT_BLUETOOTH_ENABLED);
+        diagnostico.setBluetoothMacAddr(DEFAULT_BLUETOOTH_MAC_ADDR);
+        diagnostico.setBluetoothName(DEFAULT_BLUETOOTH_NAME);
+        diagnostico.setWifiEnabled(DEFAULT_WIFI_ENABLED);
+        diagnostico.setWifiMacAddr(DEFAULT_WIFI_MAC_ADDR);
     }
 
     @Test
@@ -151,6 +174,13 @@ public class DiagnosticoResourceIntTest {
         assertThat(testDiagnostico.getAlmInternoDisp()).isEqualTo(DEFAULT_ALM_INTERNO_DISP);
         assertThat(testDiagnostico.getAlmExternoTotal()).isEqualTo(DEFAULT_ALM_EXTERNO_TOTAL);
         assertThat(testDiagnostico.getAlmExternoDisp()).isEqualTo(DEFAULT_ALM_EXTERNO_DISP);
+        assertThat(testDiagnostico.getEstadoCarga()).isEqualTo(DEFAULT_ESTADO_CARGA);
+        assertThat(testDiagnostico.getPorcentajeCarga()).isEqualTo(DEFAULT_PORCENTAJE_CARGA);
+        assertThat(testDiagnostico.isBluetoothEnabled()).isEqualTo(DEFAULT_BLUETOOTH_ENABLED);
+        assertThat(testDiagnostico.getBluetoothMacAddr()).isEqualTo(DEFAULT_BLUETOOTH_MAC_ADDR);
+        assertThat(testDiagnostico.getBluetoothName()).isEqualTo(DEFAULT_BLUETOOTH_NAME);
+        assertThat(testDiagnostico.isWifiEnabled()).isEqualTo(DEFAULT_WIFI_ENABLED);
+        assertThat(testDiagnostico.getWifiMacAddr()).isEqualTo(DEFAULT_WIFI_MAC_ADDR);
     }
 
     @Test
@@ -176,7 +206,14 @@ public class DiagnosticoResourceIntTest {
                 .andExpect(jsonPath("$.[*].almInternoTotal").value(hasItem(DEFAULT_ALM_INTERNO_TOTAL.toString())))
                 .andExpect(jsonPath("$.[*].almInternoDisp").value(hasItem(DEFAULT_ALM_INTERNO_DISP.toString())))
                 .andExpect(jsonPath("$.[*].almExternoTotal").value(hasItem(DEFAULT_ALM_EXTERNO_TOTAL.toString())))
-                .andExpect(jsonPath("$.[*].almExternoDisp").value(hasItem(DEFAULT_ALM_EXTERNO_DISP.toString())));
+                .andExpect(jsonPath("$.[*].almExternoDisp").value(hasItem(DEFAULT_ALM_EXTERNO_DISP.toString())))
+                .andExpect(jsonPath("$.[*].estadoCarga").value(hasItem(DEFAULT_ESTADO_CARGA.toString())))
+                .andExpect(jsonPath("$.[*].porcentajeCarga").value(hasItem(DEFAULT_PORCENTAJE_CARGA.toString())))
+                .andExpect(jsonPath("$.[*].bluetoothEnabled").value(hasItem(DEFAULT_BLUETOOTH_ENABLED.booleanValue())))
+                .andExpect(jsonPath("$.[*].bluetoothMacAddr").value(hasItem(DEFAULT_BLUETOOTH_MAC_ADDR.toString())))
+                .andExpect(jsonPath("$.[*].bluetoothName").value(hasItem(DEFAULT_BLUETOOTH_NAME.toString())))
+                .andExpect(jsonPath("$.[*].wifiEnabled").value(hasItem(DEFAULT_WIFI_ENABLED.booleanValue())))
+                .andExpect(jsonPath("$.[*].wifiMacAddr").value(hasItem(DEFAULT_WIFI_MAC_ADDR.toString())));
     }
 
     @Test
@@ -202,7 +239,14 @@ public class DiagnosticoResourceIntTest {
             .andExpect(jsonPath("$.almInternoTotal").value(DEFAULT_ALM_INTERNO_TOTAL.toString()))
             .andExpect(jsonPath("$.almInternoDisp").value(DEFAULT_ALM_INTERNO_DISP.toString()))
             .andExpect(jsonPath("$.almExternoTotal").value(DEFAULT_ALM_EXTERNO_TOTAL.toString()))
-            .andExpect(jsonPath("$.almExternoDisp").value(DEFAULT_ALM_EXTERNO_DISP.toString()));
+            .andExpect(jsonPath("$.almExternoDisp").value(DEFAULT_ALM_EXTERNO_DISP.toString()))
+            .andExpect(jsonPath("$.estadoCarga").value(DEFAULT_ESTADO_CARGA.toString()))
+            .andExpect(jsonPath("$.porcentajeCarga").value(DEFAULT_PORCENTAJE_CARGA.toString()))
+            .andExpect(jsonPath("$.bluetoothEnabled").value(DEFAULT_BLUETOOTH_ENABLED.booleanValue()))
+            .andExpect(jsonPath("$.bluetoothMacAddr").value(DEFAULT_BLUETOOTH_MAC_ADDR.toString()))
+            .andExpect(jsonPath("$.bluetoothName").value(DEFAULT_BLUETOOTH_NAME.toString()))
+            .andExpect(jsonPath("$.wifiEnabled").value(DEFAULT_WIFI_ENABLED.booleanValue()))
+            .andExpect(jsonPath("$.wifiMacAddr").value(DEFAULT_WIFI_MAC_ADDR.toString()));
     }
 
     @Test
@@ -236,6 +280,13 @@ public class DiagnosticoResourceIntTest {
         updatedDiagnostico.setAlmInternoDisp(UPDATED_ALM_INTERNO_DISP);
         updatedDiagnostico.setAlmExternoTotal(UPDATED_ALM_EXTERNO_TOTAL);
         updatedDiagnostico.setAlmExternoDisp(UPDATED_ALM_EXTERNO_DISP);
+        updatedDiagnostico.setEstadoCarga(UPDATED_ESTADO_CARGA);
+        updatedDiagnostico.setPorcentajeCarga(UPDATED_PORCENTAJE_CARGA);
+        updatedDiagnostico.setBluetoothEnabled(UPDATED_BLUETOOTH_ENABLED);
+        updatedDiagnostico.setBluetoothMacAddr(UPDATED_BLUETOOTH_MAC_ADDR);
+        updatedDiagnostico.setBluetoothName(UPDATED_BLUETOOTH_NAME);
+        updatedDiagnostico.setWifiEnabled(UPDATED_WIFI_ENABLED);
+        updatedDiagnostico.setWifiMacAddr(UPDATED_WIFI_MAC_ADDR);
         DiagnosticoDTO diagnosticoDTO = diagnosticoMapper.diagnosticoToDiagnosticoDTO(updatedDiagnostico);
 
         restDiagnosticoMockMvc.perform(put("/api/diagnosticos")
@@ -260,6 +311,13 @@ public class DiagnosticoResourceIntTest {
         assertThat(testDiagnostico.getAlmInternoDisp()).isEqualTo(UPDATED_ALM_INTERNO_DISP);
         assertThat(testDiagnostico.getAlmExternoTotal()).isEqualTo(UPDATED_ALM_EXTERNO_TOTAL);
         assertThat(testDiagnostico.getAlmExternoDisp()).isEqualTo(UPDATED_ALM_EXTERNO_DISP);
+        assertThat(testDiagnostico.getEstadoCarga()).isEqualTo(UPDATED_ESTADO_CARGA);
+        assertThat(testDiagnostico.getPorcentajeCarga()).isEqualTo(UPDATED_PORCENTAJE_CARGA);
+        assertThat(testDiagnostico.isBluetoothEnabled()).isEqualTo(UPDATED_BLUETOOTH_ENABLED);
+        assertThat(testDiagnostico.getBluetoothMacAddr()).isEqualTo(UPDATED_BLUETOOTH_MAC_ADDR);
+        assertThat(testDiagnostico.getBluetoothName()).isEqualTo(UPDATED_BLUETOOTH_NAME);
+        assertThat(testDiagnostico.isWifiEnabled()).isEqualTo(UPDATED_WIFI_ENABLED);
+        assertThat(testDiagnostico.getWifiMacAddr()).isEqualTo(UPDATED_WIFI_MAC_ADDR);
     }
 
     @Test

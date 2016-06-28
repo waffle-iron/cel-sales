@@ -9,7 +9,6 @@ import com.mx.kiibal.celsales.domain.enumeration.EstadoBateria;
  * A DTO for the Diagnostico entity.
  */
 public class DiagnosticoDTO implements Serializable {
-    private static final long serialVersionUID = 2154672924538183131L;
 
     private Long id;
 
@@ -38,6 +37,20 @@ public class DiagnosticoDTO implements Serializable {
     private String almExternoTotal;
 
     private String almExternoDisp;
+
+    private String estadoCarga;
+
+    private String porcentajeCarga;
+
+    private Boolean bluetoothEnabled;
+
+    private String bluetoothMacAddr;
+
+    private String bluetoothName;
+
+    private Boolean wifiEnabled;
+
+    private String wifiMacAddr;
 
 
     public Long getId() {
@@ -138,6 +151,55 @@ public class DiagnosticoDTO implements Serializable {
     public void setAlmExternoDisp(String almExternoDisp) {
         this.almExternoDisp = almExternoDisp;
     }
+    public String getEstadoCarga() {
+        return estadoCarga;
+    }
+
+    public void setEstadoCarga(String estadoCarga) {
+        this.estadoCarga = estadoCarga;
+    }
+    public String getPorcentajeCarga() {
+        return porcentajeCarga;
+    }
+
+    public void setPorcentajeCarga(String porcentajeCarga) {
+        this.porcentajeCarga = porcentajeCarga;
+    }
+    public Boolean getBluetoothEnabled() {
+        return bluetoothEnabled;
+    }
+
+    public void setBluetoothEnabled(Boolean bluetoothEnabled) {
+        this.bluetoothEnabled = bluetoothEnabled;
+    }
+    public String getBluetoothMacAddr() {
+        return bluetoothMacAddr;
+    }
+
+    public void setBluetoothMacAddr(String bluetoothMacAddr) {
+        this.bluetoothMacAddr = bluetoothMacAddr;
+    }
+    public String getBluetoothName() {
+        return bluetoothName;
+    }
+
+    public void setBluetoothName(String bluetoothName) {
+        this.bluetoothName = bluetoothName;
+    }
+    public Boolean getWifiEnabled() {
+        return wifiEnabled;
+    }
+
+    public void setWifiEnabled(Boolean wifiEnabled) {
+        this.wifiEnabled = wifiEnabled;
+    }
+    public String getWifiMacAddr() {
+        return wifiMacAddr;
+    }
+
+    public void setWifiMacAddr(String wifiMacAddr) {
+        this.wifiMacAddr = wifiMacAddr;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -177,6 +239,13 @@ public class DiagnosticoDTO implements Serializable {
             ", almInternoDisp='" + almInternoDisp + "'" +
             ", almExternoTotal='" + almExternoTotal + "'" +
             ", almExternoDisp='" + almExternoDisp + "'" +
+            ", estadoCarga='" + estadoCarga + "'" +
+            ", porcentajeCarga='" + porcentajeCarga + "'" +
+            ", bluetoothEnabled='" + bluetoothEnabled + "'" +
+            ", bluetoothMacAddr='" + bluetoothMacAddr + "'" +
+            ", bluetoothName='" + bluetoothName + "'" +
+            ", wifiEnabled='" + wifiEnabled + "'" +
+            ", wifiMacAddr='" + wifiMacAddr + "'" +
             '}';
     }
 }

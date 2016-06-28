@@ -47,11 +47,9 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.stereotype.Service;
 
 import javax.inject.Inject;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 /**
  * Service Implementation for managing Diagnostico.
@@ -104,6 +102,7 @@ public class DiagnosticoServiceImpl implements DiagnosticoService{
      * @param diagnosticoDTO the entity to save
      * @return the persisted entity
      */
+    @Override
     public DiagnosticoDTO save(DiagnosticoDTO diagnosticoDTO) {
         log.debug("Request to save Diagnostico : {}", diagnosticoDTO);
         Diagnostico diagnostico = diagnosticoMapper.diagnosticoDTOToDiagnostico(diagnosticoDTO);
@@ -118,6 +117,7 @@ public class DiagnosticoServiceImpl implements DiagnosticoService{
      *  @param pageable the pagination information
      *  @return the list of entities
      */
+    @Override
     @Transactional(readOnly = true) 
     public Page<Diagnostico> findAll(Pageable pageable) {
         log.debug("Request to get all Diagnosticos");
@@ -131,6 +131,7 @@ public class DiagnosticoServiceImpl implements DiagnosticoService{
      *  @param id the id of the entity
      *  @return the entity
      */
+    @Override
     @Transactional(readOnly = true) 
     public DiagnosticoDTO findOne(Long id) {
         log.debug("Request to get Diagnostico : {}", id);
@@ -144,6 +145,7 @@ public class DiagnosticoServiceImpl implements DiagnosticoService{
      *  
      *  @param id the id of the entity
      */
+    @Override
     public void delete(Long id) {
         log.debug("Request to delete Diagnostico : {}", id);
         diagnosticoRepository.delete(id);
@@ -168,6 +170,45 @@ public class DiagnosticoServiceImpl implements DiagnosticoService{
         return appDTO;
     }
     
+    
+    @Override
+    public DiagnosticoAppDTO findById(Long id) {
+        DiagnosticoAppDTO dto = new DiagnosticoAppDTO();
+        Diagnostico findOne = diagnosticoRepository.findOne(id);
+        
+        Optional<UsuarioDiagnostico> usuarioDiagnostico = 
+                usuarioDiagnosticoRepository.findByDiagnostico(findOne);
+        
+        List<AppNoOfc> appNoOfcs = 
+                appNoOfcRepository.findByDiagnostico(findOne);
+        
+        Optional<TelefonoDiagnostico> telefonoDiagnostico = 
+                telefonoDiagnosticoRepository.findByDiagnostico(findOne);
+        
+        Optional<DiagnosticoCarrier> diagnosticoCarrier = 
+                diagnosticoCarrierRepository.findByDiagnostico(findOne);
+        
+        dto.setAppsList(appsDomainToDTO(appNoOfcs));
+        dto.setBattery(batteryDomainToDTO(findOne));
+        dto.setBluetooth(new BluetoothDTO(
+                findOne.getBluetoothName(), 
+                findOne.getBluetoothMacAddr(), 
+                findOne.isBluetoothEnabled())); 
+        dto.setBrand(""); 
+        dto.setCarrier(diagnosticoCarrier.get().getCarrier().getNombre());
+        dto.setEmail(usuarioDiagnostico.get().getUser().getEmail());
+        dto.setId(id);
+        dto.setImei(findOne.getImei());
+        dto.setManufacturer(telefonoDiagnostico.get().getTelefono().getFabricante().getNombre());
+        dto.setModel(telefonoDiagnostico.get().getTelefono().getModelo());
+        dto.setSerial(findOne.getSerial());
+        dto.setStorage(storageDomainToDTO(findOne));
+        dto.setVersion(findOne.getVersionSO());
+        dto.setWifi(new WiFiDTO(findOne.getWifiMacAddr(), findOne.isWifiEnabled())); 
+                
+        return dto;
+    }
+    
     /**
      * Método para guardar las apps no oficiales
      * @param diagnostico
@@ -185,7 +226,7 @@ public class DiagnosticoServiceImpl implements DiagnosticoService{
                     app.setEmpaquetado(a.getAppPackage());
                     app.setFechaInstalacion(a.getAppInstalled());
                     app.setFechaModificacion(a.getAppLastModify());
-                    app.setIcono(null);
+                    app.setIcono(a.getAppEncodedIcon());
                     app.setIconoContentType(null);
                     app.setNombre(a.getAppName());
                     app.setVersion(a.getAppVersion());
@@ -218,9 +259,16 @@ public class DiagnosticoServiceImpl implements DiagnosticoService{
         diagnosticoCarrierRepository.save(dc);
     }
     
+    /**
+     * Método para guardar la relación UsuarioDiagnostico
+     * TODO
+     * @param diagnostico
+     * @param appDTO 
+     */
     private void saveUsuarioDiagnostico(Diagnostico diagnostico,DiagnosticoAppDTO appDTO){
         Optional<User> findOneByEmail = 
                 userRepository.findOneByEmail(appDTO.getEmail());
+        Optional<User> findOneByLogin = userRepository.findOneByLogin("admin");
         UsuarioDiagnostico usuarioDiagnostico = new UsuarioDiagnostico();
         
         if (!findOneByEmail.isPresent()) {
@@ -230,12 +278,17 @@ public class DiagnosticoServiceImpl implements DiagnosticoService{
         
         usuarioDiagnostico.setDiagnostico(diagnostico);
         usuarioDiagnostico.setEsCreador(Boolean.TRUE);
-        usuarioDiagnostico.setUser(findOneByEmail.get());
+        usuarioDiagnostico.setUser(findOneByLogin.get());
         
         usuarioDiagnosticoRepository.save(usuarioDiagnostico);
         
     }
     
+    /**
+     * Método para guardar la relación TelefonoDiagnostico
+     * @param diagnostico
+     * @param appDTO 
+     */
     private void saveTelefonoDiagnostico(Diagnostico diagnostico,DiagnosticoAppDTO appDTO){
         Optional<Fabricante> findByNombre 
                 = fabricanteService.findByNombre(appDTO.getManufacturer());
@@ -274,42 +327,12 @@ public class DiagnosticoServiceImpl implements DiagnosticoService{
         telefonoDiagnosticoRepository.save(telefonoDiagnostico);
         
     }
-
-    @Override
-    public DiagnosticoAppDTO findById(Long id) {
-        DiagnosticoAppDTO dto = new DiagnosticoAppDTO();
-        Diagnostico findOne = diagnosticoRepository.findOne(id);
-        
-        Optional<UsuarioDiagnostico> usuarioDiagnostico = 
-                usuarioDiagnosticoRepository.findByDiagnostico(findOne);
-        
-        List<AppNoOfc> appNoOfcs = 
-                appNoOfcRepository.findByDiagnostico(findOne);
-        
-        Optional<TelefonoDiagnostico> telefonoDiagnostico = 
-                telefonoDiagnosticoRepository.findByDiagnostico(findOne);
-        
-        Optional<DiagnosticoCarrier> diagnosticoCarrier = 
-                diagnosticoCarrierRepository.findByDiagnostico(findOne);
-        
-        dto.setAppsList(appsDomainToDTO(appNoOfcs));
-        dto.setBattery(batteryDomainToDTO(findOne));
-        dto.setBluetooth(new BluetoothDTO("", "", true)); // <----
-        dto.setBrand(""); // <----
-        dto.setCarrier(diagnosticoCarrier.get().getCarrier().getNombre());
-        dto.setEmail(usuarioDiagnostico.get().getUser().getEmail());
-        dto.setId(id);
-        dto.setImei(findOne.getImei());
-        dto.setManufacturer(telefonoDiagnostico.get().getTelefono().getFabricante().getNombre());
-        dto.setModel(telefonoDiagnostico.get().getTelefono().getModelo());
-        dto.setSerial(findOne.getSerial());
-        dto.setStorage(storageDomainToDTO(findOne));
-        dto.setVersion(findOne.getVersionSO());
-        dto.setWifi(new WiFiDTO("", true)); // <----
-                
-        return dto;
-    }
     
+    /**
+     * Método para convertir del modelo de dominio a DTO las apps no oficiales
+     * @param appNoOfcs
+     * @return 
+     */
     private List<AppDataDTO> appsDomainToDTO(List<AppNoOfc> appNoOfcs){
         List<AppDataDTO> apps = new ArrayList<>();
         
@@ -322,30 +345,40 @@ public class DiagnosticoServiceImpl implements DiagnosticoService{
                                     a.getEmpaquetado(), 
                                     a.getVersion(), 
                                     a.getFechaInstalacion(), 
-                                    a.getFechaModificacion());
+                                    a.getFechaModificacion(),
+                                    a.getIcono());
                     apps.add(dto);
                 });
         
         return apps;
     }
     
+    /**
+     * Método para convertir del modelo de dominioa a DTO 
+     * la información referente a la bateria
+     * @param diagnostico
+     * @return 
+     */
     private BatteryDTO batteryDomainToDTO(Diagnostico diagnostico){
         BatteryDTO batteryDTO = new BatteryDTO();
-        batteryDTO.setBatteryPct("");
+        batteryDTO.setBatteryPct(diagnostico.getPorcentajeCarga());
         batteryDTO.setCapacity(diagnostico.getCapBateria());
         batteryDTO.setHealth(new HealthDTO(
-                diagnostico.getEstadoBateria().name(), 
-                diagnostico.getEstadoBateria().name())); // <----
-        batteryDTO.setPlugged(new PluggedDTO(
-                diagnostico.getFuenteEnergia(), 
-                diagnostico.getFuenteEnergia())); // <----
-        batteryDTO.setStatus(new StatusDTO("", "")); // <----
+                diagnostico.getEstadoBateria().name(), "0")); 
+        batteryDTO.setPlugged(new PluggedDTO(diagnostico.getFuenteEnergia(),"0"));
+        batteryDTO.setStatus(new StatusDTO(diagnostico.getEstadoCarga(), "0"));
         batteryDTO.setTechnology(diagnostico.getTecBateria());
         batteryDTO.setTemperature(diagnostico.getTempBateria());
         batteryDTO.setVoltage(diagnostico.getVoltBateria());
         return batteryDTO;
     }
     
+    /**
+     * Método para convertir la información referente al almacenamiento
+     * del modelo de dominio a DTO
+     * @param diagnostico
+     * @return 
+     */
     private StorageDTO storageDomainToDTO(Diagnostico diagnostico){
         StorageDTO storageDTO = new StorageDTO();
         

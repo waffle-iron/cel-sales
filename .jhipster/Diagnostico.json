@@ -53,6 +53,34 @@
         {
             "fieldName": "almExternoDisp",
             "fieldType": "String"
+        },
+        {
+            "fieldName": "estadoCarga",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "porcentajeCarga",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "bluetoothEnabled",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "bluetoothMacAddr",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "bluetoothName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "wifiEnabled",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "wifiMacAddr",
+            "fieldType": "String"
         }
     ],
     "changelogDate": "20160625001715",
