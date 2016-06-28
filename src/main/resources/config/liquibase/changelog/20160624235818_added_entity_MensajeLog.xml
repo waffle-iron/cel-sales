@@ -21,15 +21,19 @@
             <column name="id" type="bigint" autoIncrement="${autoIncrement}">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="tipo" type="varchar(255)">
-                <constraints nullable="true" />
-            </column>
-            
-            <column name="contenido" type="varchar(255)">
-                <constraints nullable="true" />
-            </column>
-            
             <column name="fecha" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            
+            <column name="log_exception" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            
+            <column name="log_exception_msg" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            
+            <column name="log_package" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
             

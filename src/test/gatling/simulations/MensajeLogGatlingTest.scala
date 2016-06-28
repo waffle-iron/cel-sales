@@ -67,7 +67,7 @@ class MensajeLogGatlingTest extends Simulation {
             .exec(http("Create new mensajeLog")
             .post("/api/mensaje-logs")
             .headers(headers_http_authenticated)
-            .body(StringBody("""{"id":null, "tipo":"SAMPLE_TEXT", "contenido":"SAMPLE_TEXT", "fecha":"SAMPLE_TEXT"}""")).asJSON
+            .body(StringBody("""{"id":null, "fecha":"SAMPLE_TEXT", "logException":"SAMPLE_TEXT", "logExceptionMsg":"SAMPLE_TEXT", "logPackage":"SAMPLE_TEXT"}""")).asJSON
             .check(status.is(201))
             .check(headerRegex("Location", "(.*)").saveAs("new_mensajeLog_url"))).exitHereIfFailed
             .pause(10)

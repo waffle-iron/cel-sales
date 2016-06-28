@@ -6,6 +6,7 @@ import com.mx.kiibal.celsales.service.DiagnosticoService;
 import com.mx.kiibal.celsales.domain.Diagnostico;
 import com.mx.kiibal.celsales.domain.DiagnosticoCarrier;
 import com.mx.kiibal.celsales.domain.Fabricante;
+import com.mx.kiibal.celsales.domain.MensajeLog;
 import com.mx.kiibal.celsales.domain.Telefono;
 import com.mx.kiibal.celsales.domain.TelefonoDiagnostico;
 import com.mx.kiibal.celsales.domain.User;
@@ -15,6 +16,7 @@ import com.mx.kiibal.celsales.repository.CarrierRepository;
 import com.mx.kiibal.celsales.repository.DiagnosticoCarrierRepository;
 import com.mx.kiibal.celsales.repository.DiagnosticoRepository;
 import com.mx.kiibal.celsales.repository.FabricanteRepository;
+import com.mx.kiibal.celsales.repository.MensajeLogRepository;
 import com.mx.kiibal.celsales.repository.TelefonoDiagnosticoRepository;
 import com.mx.kiibal.celsales.repository.TelefonoRepository;
 import com.mx.kiibal.celsales.repository.UserRepository;
@@ -28,8 +30,10 @@ import com.mx.kiibal.celsales.web.rest.dto.DiagnosticoAppDTO;
 import com.mx.kiibal.celsales.web.rest.dto.DiagnosticoDTO;
 import com.mx.kiibal.celsales.web.rest.dto.ExternalDTO;
 import com.mx.kiibal.celsales.web.rest.dto.FabricanteDTO;
+import com.mx.kiibal.celsales.web.rest.dto.FechaLogDTO;
 import com.mx.kiibal.celsales.web.rest.dto.HealthDTO;
 import com.mx.kiibal.celsales.web.rest.dto.InternalDTO;
+import com.mx.kiibal.celsales.web.rest.dto.LogDTO;
 import com.mx.kiibal.celsales.web.rest.dto.PluggedDTO;
 import com.mx.kiibal.celsales.web.rest.dto.StatusDTO;
 import com.mx.kiibal.celsales.web.rest.dto.StorageDTO;
@@ -95,6 +99,9 @@ public class DiagnosticoServiceImpl implements DiagnosticoService{
     
     @Inject
     private TelefonoDiagnosticoRepository telefonoDiagnosticoRepository;
+    
+    @Inject
+    private MensajeLogRepository mensajeLogRepository;
     
     /**
      * Save a diagnostico.
@@ -165,6 +172,8 @@ public class DiagnosticoServiceImpl implements DiagnosticoService{
         
         saveTelefonoDiagnostico(d, appDTO);
         
+        saveLogs(d, appDTO);
+        
         appDTO.setId(d.getId());
         
         return appDTO;
@@ -188,6 +197,8 @@ public class DiagnosticoServiceImpl implements DiagnosticoService{
         Optional<DiagnosticoCarrier> diagnosticoCarrier = 
                 diagnosticoCarrierRepository.findByDiagnostico(findOne);
         
+        List<MensajeLog> logs = mensajeLogRepository.findByDiagnostico(findOne);
+        
         dto.setAppsList(appsDomainToDTO(appNoOfcs));
         dto.setBattery(batteryDomainToDTO(findOne));
         dto.setBluetooth(new BluetoothDTO(
@@ -205,8 +216,77 @@ public class DiagnosticoServiceImpl implements DiagnosticoService{
         dto.setStorage(storageDomainToDTO(findOne));
         dto.setVersion(findOne.getVersionSO());
         dto.setWifi(new WiFiDTO(findOne.getWifiMacAddr(), findOne.isWifiEnabled())); 
+        dto.setLogsList(logDomainToDTO(logs));
                 
         return dto;
+    }
+    
+    /**
+     * Convierte los logs del modelo de dominio a DTO
+     * @param logs
+     * @return 
+     */
+    private List<LogDTO> logDomainToDTO(List<MensajeLog> logs){
+        List<LogDTO> dto = new ArrayList<>();
+        
+        logs
+                .stream()
+                .forEach(l -> {
+                    LogDTO logDTO = new LogDTO();
+                    logDTO.setLogException(l.getLogException());
+                    logDTO.setLogExceptionMsg(l.getLogExceptionMsg());
+                    logDTO.setLogPackage(l.getLogPackage());
+                    logDTO.setLogDate(fechaToFechaLogDTO(l.getFecha()));
+                    
+                    dto.add(logDTO);
+                });
+        
+        return dto;
+    }
+    
+    /**
+     * Método para convertir la fecha a un DTO
+     * @param fecha
+     * @return 
+     */
+    private FechaLogDTO fechaToFechaLogDTO(String fecha){
+        FechaLogDTO fechaLogDTO = new FechaLogDTO();
+        String[] split = fecha.split(" ");
+        String[] date = split[0].split("-");
+        String[] time = split[1].split(":");
+        fechaLogDTO.setYear(date[0]);
+        fechaLogDTO.setMonth(date[1]);
+        fechaLogDTO.setDayOfMonth(date[2]);
+        fechaLogDTO.setHourOfDay(time[0]);
+        fechaLogDTO.setMinute(time[1]);
+        fechaLogDTO.setSecond(time[2]);
+        
+        return fechaLogDTO;
+    }
+    
+    /**
+     * Método para guardar los logs
+     * @param diagnostico
+     * @param appDto 
+     */
+    private void saveLogs(Diagnostico diagnostico, DiagnosticoAppDTO appDto){
+        List<MensajeLog> mensajeLogs = new ArrayList<>();
+        
+        appDto
+                .getLogsList()
+                .stream()
+                .forEach(l ->{
+                    MensajeLog m = new MensajeLog();
+                    m.setDiagnostico(diagnostico);
+                    m.setFecha(l.getLogDate().toString());
+                    m.setLogException(l.getLogException());
+                    m.setLogExceptionMsg(l.getLogExceptionMsg());
+                    m.setLogPackage(l.getLogPackage());
+                    
+                    mensajeLogs.add(m);
+                });
+        
+        mensajeLogRepository.save(mensajeLogs);
     }
     
     /**

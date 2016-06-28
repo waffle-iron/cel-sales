@@ -19,9 +19,10 @@
             <thead>
                 <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
                     <th jh-sort-by="id"><span translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="tipo"><span translate="celSalesApp.mensajeLog.tipo">Tipo</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="contenido"><span translate="celSalesApp.mensajeLog.contenido">Contenido</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="fecha"><span translate="celSalesApp.mensajeLog.fecha">Fecha</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="logException"><span translate="celSalesApp.mensajeLog.logException">Log Exception</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="logExceptionMsg"><span translate="celSalesApp.mensajeLog.logExceptionMsg">Log Exception Msg</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="logPackage"><span translate="celSalesApp.mensajeLog.logPackage">Log Package</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="diagnostico.id"><span translate="celSalesApp.mensajeLog.diagnostico">Diagnostico</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th></th>
                 </tr>
@@ -29,9 +30,10 @@
             <tbody>
                 <tr ng-repeat="mensajeLog in vm.mensajeLogs track by mensajeLog.id">
                     <td><a ui-sref="mensaje-log-detail({id:mensajeLog.id})">{{mensajeLog.id}}</a></td>
-                    <td>{{mensajeLog.tipo}}</td>
-                    <td>{{mensajeLog.contenido}}</td>
                     <td>{{mensajeLog.fecha}}</td>
+                    <td>{{mensajeLog.logException}}</td>
+                    <td>{{mensajeLog.logExceptionMsg}}</td>
+                    <td>{{mensajeLog.logPackage}}</td>
                     <td>
                         <a ui-sref="diagnostico-detail({id:mensajeLog.diagnostico.id})">{{mensajeLog.diagnostico.id}}</a>
                     </td>

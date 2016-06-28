@@ -16,9 +16,10 @@
             "detail": {
                 "title": "Mensaje Log"
             },
-            "tipo": "Tipo",
-            "contenido": "Contenido",
             "fecha": "Fecha",
+            "logException": "Log Exception",
+            "logExceptionMsg": "Log Exception Msg",
+            "logPackage": "Log Package",
             "diagnostico": "Diagnostico"
         }
     }

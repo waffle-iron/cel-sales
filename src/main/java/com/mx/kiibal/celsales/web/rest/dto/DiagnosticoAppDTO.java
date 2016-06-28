@@ -28,6 +28,7 @@ public class DiagnosticoAppDTO implements Serializable{
     private BluetoothDTO bluetooth;
     private WiFiDTO wifi;
     private List<AppDataDTO> appsList;
+    private List<LogDTO> logsList;
 
     public DiagnosticoAppDTO() {}
 
@@ -45,7 +46,8 @@ public class DiagnosticoAppDTO implements Serializable{
             @JsonProperty(value = "storage")StorageDTO storage, 
             @JsonProperty(value = "bluetooth")BluetoothDTO bluetooth, 
             @JsonProperty(value = "wifi")WiFiDTO wifi, 
-            @JsonProperty(value = "appsList")List<AppDataDTO> appsList) {
+            @JsonProperty(value = "appsList")List<AppDataDTO> appsList,
+            @JsonProperty(value = "logsList")List<LogDTO> logsList) {
         this.imei = imei;
         this.serial = serial;
         this.model = model;
@@ -59,6 +61,7 @@ public class DiagnosticoAppDTO implements Serializable{
         this.bluetooth = bluetooth;
         this.wifi = wifi;
         this.appsList = appsList;
+        this.logsList = logsList;
     }
 
     public String getImei() {
@@ -173,16 +176,32 @@ public class DiagnosticoAppDTO implements Serializable{
         this.id = id;
     }
 
+    public List<LogDTO> getLogsList() {
+        return logsList;
+    }
+
+    public void setLogsList(List<LogDTO> logsList) {
+        this.logsList = logsList;
+    }
+
     @Override
     public String toString() {
-        return "DiagnosticoAppDTO{" + "imei=" + imei + ", serial=" + serial 
-                + ", model=" + model + ", brand=" + brand 
-                + ", manufacturer=" + manufacturer + ", version=" + version 
-                + ", carrier=" + carrier + ", email=" + email + ", battery=" + battery 
-                + ", storage=" + storage + ", bluetooth=" + bluetooth + ", wifi=" 
-                + wifi + ", appsList=" + appsList + '}';
+        return "DiagnosticoAppDTO{" + 
+                "id=" + id + 
+                ", imei=" + imei + 
+                ", serial=" + serial + 
+                ", model=" + model + 
+                ", brand=" + brand + 
+                ", manufacturer=" + manufacturer + 
+                ", version=" + version + 
+                ", carrier=" + carrier + 
+                ", email=" + email + 
+                ", battery=" + battery + 
+                ", storage=" + storage + 
+                ", bluetooth=" + bluetooth + 
+                ", wifi=" + wifi + 
+                ", appsList=" + appsList + 
+                ", logsList=" + logsList + '}';
     }
-    
-    
-    
+
 }

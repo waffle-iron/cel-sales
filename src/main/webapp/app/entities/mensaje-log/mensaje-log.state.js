@@ -91,9 +91,10 @@
                     resolve: {
                         entity: function () {
                             return {
-                                tipo: null,
-                                contenido: null,
                                 fecha: null,
+                                logException: null,
+                                logExceptionMsg: null,
+                                logPackage: null,
                                 id: null
                             };
                         }

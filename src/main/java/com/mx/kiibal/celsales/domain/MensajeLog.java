@@ -21,14 +21,17 @@ public class MensajeLog implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(name = "tipo")
-    private String tipo;
-
-    @Column(name = "contenido")
-    private String contenido;
-
     @Column(name = "fecha")
     private String fecha;
+
+    @Column(name = "log_exception")
+    private String logException;
+
+    @Column(name = "log_exception_msg")
+    private String logExceptionMsg;
+
+    @Column(name = "log_package")
+    private String logPackage;
 
     @ManyToOne
     private Diagnostico diagnostico;
@@ -41,28 +44,36 @@ public class MensajeLog implements Serializable {
         this.id = id;
     }
 
-    public String getTipo() {
-        return tipo;
-    }
-
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
-    }
-
-    public String getContenido() {
-        return contenido;
-    }
-
-    public void setContenido(String contenido) {
-        this.contenido = contenido;
-    }
-
     public String getFecha() {
         return fecha;
     }
 
     public void setFecha(String fecha) {
         this.fecha = fecha;
+    }
+
+    public String getLogException() {
+        return logException;
+    }
+
+    public void setLogException(String logException) {
+        this.logException = logException;
+    }
+
+    public String getLogExceptionMsg() {
+        return logExceptionMsg;
+    }
+
+    public void setLogExceptionMsg(String logExceptionMsg) {
+        this.logExceptionMsg = logExceptionMsg;
+    }
+
+    public String getLogPackage() {
+        return logPackage;
+    }
+
+    public void setLogPackage(String logPackage) {
+        this.logPackage = logPackage;
     }
 
     public Diagnostico getDiagnostico() {
@@ -97,9 +108,10 @@ public class MensajeLog implements Serializable {
     public String toString() {
         return "MensajeLog{" +
             "id=" + id +
-            ", tipo='" + tipo + "'" +
-            ", contenido='" + contenido + "'" +
             ", fecha='" + fecha + "'" +
+            ", logException='" + logException + "'" +
+            ", logExceptionMsg='" + logExceptionMsg + "'" +
+            ", logPackage='" + logPackage + "'" +
             '}';
     }
 }

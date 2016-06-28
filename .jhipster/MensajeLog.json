@@ -9,15 +9,19 @@
     ],
     "fields": [
         {
-            "fieldName": "tipo",
-            "fieldType": "String"
-        },
-        {
-            "fieldName": "contenido",
-            "fieldType": "String"
-        },
-        {
             "fieldName": "fecha",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "logException",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "logExceptionMsg",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "logPackage",
             "fieldType": "String"
         }
     ],

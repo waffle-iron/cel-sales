@@ -41,12 +41,14 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @IntegrationTest
 public class MensajeLogResourceIntTest {
 
-    private static final String DEFAULT_TIPO = "AAAAA";
-    private static final String UPDATED_TIPO = "BBBBB";
-    private static final String DEFAULT_CONTENIDO = "AAAAA";
-    private static final String UPDATED_CONTENIDO = "BBBBB";
     private static final String DEFAULT_FECHA = "AAAAA";
     private static final String UPDATED_FECHA = "BBBBB";
+    private static final String DEFAULT_LOG_EXCEPTION = "AAAAA";
+    private static final String UPDATED_LOG_EXCEPTION = "BBBBB";
+    private static final String DEFAULT_LOG_EXCEPTION_MSG = "AAAAA";
+    private static final String UPDATED_LOG_EXCEPTION_MSG = "BBBBB";
+    private static final String DEFAULT_LOG_PACKAGE = "AAAAA";
+    private static final String UPDATED_LOG_PACKAGE = "BBBBB";
 
     @Inject
     private MensajeLogRepository mensajeLogRepository;
@@ -74,9 +76,10 @@ public class MensajeLogResourceIntTest {
     @Before
     public void initTest() {
         mensajeLog = new MensajeLog();
-        mensajeLog.setTipo(DEFAULT_TIPO);
-        mensajeLog.setContenido(DEFAULT_CONTENIDO);
         mensajeLog.setFecha(DEFAULT_FECHA);
+        mensajeLog.setLogException(DEFAULT_LOG_EXCEPTION);
+        mensajeLog.setLogExceptionMsg(DEFAULT_LOG_EXCEPTION_MSG);
+        mensajeLog.setLogPackage(DEFAULT_LOG_PACKAGE);
     }
 
     @Test
@@ -95,9 +98,10 @@ public class MensajeLogResourceIntTest {
         List<MensajeLog> mensajeLogs = mensajeLogRepository.findAll();
         assertThat(mensajeLogs).hasSize(databaseSizeBeforeCreate + 1);
         MensajeLog testMensajeLog = mensajeLogs.get(mensajeLogs.size() - 1);
-        assertThat(testMensajeLog.getTipo()).isEqualTo(DEFAULT_TIPO);
-        assertThat(testMensajeLog.getContenido()).isEqualTo(DEFAULT_CONTENIDO);
         assertThat(testMensajeLog.getFecha()).isEqualTo(DEFAULT_FECHA);
+        assertThat(testMensajeLog.getLogException()).isEqualTo(DEFAULT_LOG_EXCEPTION);
+        assertThat(testMensajeLog.getLogExceptionMsg()).isEqualTo(DEFAULT_LOG_EXCEPTION_MSG);
+        assertThat(testMensajeLog.getLogPackage()).isEqualTo(DEFAULT_LOG_PACKAGE);
     }
 
     @Test
@@ -111,9 +115,10 @@ public class MensajeLogResourceIntTest {
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$.[*].id").value(hasItem(mensajeLog.getId().intValue())))
-                .andExpect(jsonPath("$.[*].tipo").value(hasItem(DEFAULT_TIPO.toString())))
-                .andExpect(jsonPath("$.[*].contenido").value(hasItem(DEFAULT_CONTENIDO.toString())))
-                .andExpect(jsonPath("$.[*].fecha").value(hasItem(DEFAULT_FECHA.toString())));
+                .andExpect(jsonPath("$.[*].fecha").value(hasItem(DEFAULT_FECHA.toString())))
+                .andExpect(jsonPath("$.[*].logException").value(hasItem(DEFAULT_LOG_EXCEPTION.toString())))
+                .andExpect(jsonPath("$.[*].logExceptionMsg").value(hasItem(DEFAULT_LOG_EXCEPTION_MSG.toString())))
+                .andExpect(jsonPath("$.[*].logPackage").value(hasItem(DEFAULT_LOG_PACKAGE.toString())));
     }
 
     @Test
@@ -127,9 +132,10 @@ public class MensajeLogResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON))
             .andExpect(jsonPath("$.id").value(mensajeLog.getId().intValue()))
-            .andExpect(jsonPath("$.tipo").value(DEFAULT_TIPO.toString()))
-            .andExpect(jsonPath("$.contenido").value(DEFAULT_CONTENIDO.toString()))
-            .andExpect(jsonPath("$.fecha").value(DEFAULT_FECHA.toString()));
+            .andExpect(jsonPath("$.fecha").value(DEFAULT_FECHA.toString()))
+            .andExpect(jsonPath("$.logException").value(DEFAULT_LOG_EXCEPTION.toString()))
+            .andExpect(jsonPath("$.logExceptionMsg").value(DEFAULT_LOG_EXCEPTION_MSG.toString()))
+            .andExpect(jsonPath("$.logPackage").value(DEFAULT_LOG_PACKAGE.toString()));
     }
 
     @Test
@@ -150,9 +156,10 @@ public class MensajeLogResourceIntTest {
         // Update the mensajeLog
         MensajeLog updatedMensajeLog = new MensajeLog();
         updatedMensajeLog.setId(mensajeLog.getId());
-        updatedMensajeLog.setTipo(UPDATED_TIPO);
-        updatedMensajeLog.setContenido(UPDATED_CONTENIDO);
         updatedMensajeLog.setFecha(UPDATED_FECHA);
+        updatedMensajeLog.setLogException(UPDATED_LOG_EXCEPTION);
+        updatedMensajeLog.setLogExceptionMsg(UPDATED_LOG_EXCEPTION_MSG);
+        updatedMensajeLog.setLogPackage(UPDATED_LOG_PACKAGE);
 
         restMensajeLogMockMvc.perform(put("/api/mensaje-logs")
                 .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -163,9 +170,10 @@ public class MensajeLogResourceIntTest {
         List<MensajeLog> mensajeLogs = mensajeLogRepository.findAll();
         assertThat(mensajeLogs).hasSize(databaseSizeBeforeUpdate);
         MensajeLog testMensajeLog = mensajeLogs.get(mensajeLogs.size() - 1);
-        assertThat(testMensajeLog.getTipo()).isEqualTo(UPDATED_TIPO);
-        assertThat(testMensajeLog.getContenido()).isEqualTo(UPDATED_CONTENIDO);
         assertThat(testMensajeLog.getFecha()).isEqualTo(UPDATED_FECHA);
+        assertThat(testMensajeLog.getLogException()).isEqualTo(UPDATED_LOG_EXCEPTION);
+        assertThat(testMensajeLog.getLogExceptionMsg()).isEqualTo(UPDATED_LOG_EXCEPTION_MSG);
+        assertThat(testMensajeLog.getLogPackage()).isEqualTo(UPDATED_LOG_PACKAGE);
     }
 
     @Test
