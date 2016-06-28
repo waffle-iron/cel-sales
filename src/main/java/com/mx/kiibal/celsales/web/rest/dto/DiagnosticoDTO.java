@@ -9,6 +9,7 @@ import com.mx.kiibal.celsales.domain.enumeration.EstadoBateria;
  * A DTO for the Diagnostico entity.
  */
 public class DiagnosticoDTO implements Serializable {
+    private static final long serialVersionUID = 2154672924538183131L;
 
     private Long id;
 
