@@ -17,6 +17,7 @@
                 "title": "Diagnostico"
             },
             "imei": "Imei",
+            "model": "Model",
             "serial": "Serial",
             "tempBateria": "Temp Bateria",
             "tecBateria": "Tec Bateria",

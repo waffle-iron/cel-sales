@@ -11,11 +11,11 @@
                     <div class="col-md-4 informacion-liberacion" ng-repeat="diagnostico in vm.diagnosticos track by diagnostico.id">
                         <table class="table">
                             <tr>
-                                <td class="no-operacion" style="border: none">
+                                <td class="no-operacion" style="border: 0px !important;padding: 0;margin: 0;">
                                     <span translate="global.field.id">ID</span><br>
                                     <span ui-sref="diagnostico-detail({id:diagnostico.id})" class="botones">{{diagnostico.id}}</span>
                                 </td>
-                                <td rowspan="2" style="border: none">
+                                <td rowspan="2" style="border: 0px !important;padding: 0;margin: 0;">
                                     <table class="table">
                                         <tr>
                                             <td class="nombre-parametro" style="border: none">

@@ -8,256 +8,458 @@
         <div id="page-content-wrapper">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-md-3 informacion-liberacion">
-                        <div class="panel panel-default" style="width: 314px;">
-                            <div class="panel-body">
-                                <table class="table">
-                                    <tbody><tr>
-                                            <td class="no-operacion">
-                                                {{vm.diagnostico.id}}
-                                            </td>
-                                        </tr>
-                                    </tbody></table>      
-                            </div>
-                            <div class="panel-body">
-                                <table class="table">
-                                    <tbody><tr>
-                                            <td class="nombre-parametro" width="100px">
-                                                <span translate="celSalesApp.diagnostico.manufacturer">Manufacturer</span>:
-                                            </td>
-                                            <td class="valor-parametro">{{vm.diagnostico.manufacturer}}</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="nombre-parametro" width="100px">
-                                                <span translate="celSalesApp.diagnostico.model">Model</span>:
-                                            </td>
-                                            <td class="valor-parametro">{{vm.diagnostico.model}}</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="nombre-parametro" width="100px">
-                                                <span translate="celSalesApp.diagnostico.imei">Imei</span>:
-                                            </td>
-                                            <td class="valor-parametro">{{vm.diagnostico.imei}}</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="nombre-parametro" width="100px">
-                                                <span translate="celSalesApp.diagnostico.serial">Serial</span>:
-                                            </td>
-                                            <td class="valor-parametro">{{vm.diagnostico.serial}}</td>
-                                        </tr>
-                                        <tr ng-show="false">
-                                            <td class="nombre-parametro" width="100px">
-                                                <span translate="celSalesApp.diagnostico.host">Host</span>:
-                                            </td>
-                                            <td class="valor-parametro">{{vm.diagnostico.host}}</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="nombre-parametro" width="100px">
-                                                <span translate="celSalesApp.diagnostico.version">Version</span>:
-                                            </td>
-                                            <td class="valor-parametro">{{vm.diagnostico.version}}</td>
-                                        </tr>
-                                        <tr ng-show="false">
-                                            <td class="nombre-parametro" width="100px">
-                                                <span translate="celSalesApp.diagnostico.deviceId">Device Id</span>:
-                                            </td>
-                                            <td class="valor-parametro">{{vm.diagnostico.deviceId}}</td>
-                                        </tr>
-                                        <tr ng-show="false">
-                                            <td class="nombre-parametro" width="100px">
-                                                <span translate="celSalesApp.diagnostico.androidId">Android Id</span>:
-                                            </td>
-                                            <td class="valor-parametro">{{vm.diagnostico.androidId}}</td>
-                                        </tr>
-                                        <tr ng-show="false">
-                                            <td class="nombre-parametro" width="100px">
-                                                <span translate="celSalesApp.diagnostico.wlanMAC">Wlan MAC</span>:
-                                            </td>
-                                            <td class="valor-parametro">{{vm.diagnostico.wlanMAC}}</td>
-                                        </tr>
-                                        <tr ng-show="false">
-                                            <td class="nombre-parametro" width="100px">
-                                                <span translate="celSalesApp.diagnostico.btMAC">Bt MAC</span>
-                                            </td>
-                                            <td class="valor-parametro">{{vm.diagnostico.btMAC}}</td>
-                                        </tr>
-                                    </tbody></table>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 informacion-liberacion" style="padding-left: 80px;">
+                    <div class="col-md-9">
                         <div class="row">
-                            <div class="col-md-6">
-                                <div class="panel panel-default" style="border: none;">
-                                    <div class="panel-heading" style="background: #0A3D91; border: none; color:white">
-                                        <h3 class="panel-title text-center"><span translate="celSalesApp.diagnostico.bluetooth">BLUETOOTH</span></h3>
-                                        <!-- FUNCIONALIDAD DEL  -->
-                                    </div>
-                                    <div class="panel-body text-center" style="background: #0A3D91; border: none;">
-                                        <img src="content/images/bluetooth.fw.png" style="height: 150px;">
-                                    </div>
+                            <div class="col-lg-4 informacion-liberacion">
+                                <div class="panel panel-default">
+                                  <div class="widget-info-diagnostico panel-body">
+                                    <table class="table info-diagnostico">
+                                      <tr>
+                                        <td class="no-operacion">
+                                          ID {{vm.diagnostico.id}}
+                                        </td>
+                                      </tr>
+                                    </table>
+                                    <table class="table info-diagnostico">
+                                        <tbody>
+                                            <tr>
+                                                <td class="nombre-parametro" width="100px">
+                                                    <span translate="celSalesApp.diagnostico.manufacturer">Manufacturer</span>:
+                                                </td>
+                                                <td class="valor-parametro">{{vm.diagnostico.manufacturer}}</td>
+                                            </tr>
+                                            <!-- <tr>
+                                                <td class="nombre-parametro" width="100px">
+                                                    <span translate="celSalesApp.diagnostico.brand">brand</span>:
+                                                </td>
+                                                <td class="valor-parametro">{{vm.diagnostico.brand}}</td>
+                                            </tr> -->
+                                            <tr>
+                                                <td class="nombre-parametro">
+                                                    <span translate="celSalesApp.diagnostico.model">Model</span>:
+                                                </td>
+                                                <td class="valor-parametro">{{vm.diagnostico.model}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="nombre-parametro">
+                                                    <span translate="celSalesApp.diagnostico.imei">Imei</span>:
+                                                </td>
+                                                <td class="valor-parametro">{{vm.diagnostico.imei}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="nombre-parametro">
+                                                    <span translate="celSalesApp.diagnostico.serial">Serial</span>:
+                                                </td>
+                                                <td class="valor-parametro">{{vm.diagnostico.serial}}</td>
+                                            </tr>
+                                            <tr ng-show="false">
+                                                <td class="nombre-parametro">
+                                                    <span translate="celSalesApp.diagnostico.host">Host</span>:
+                                                </td>
+                                                <td class="valor-parametro">{{vm.diagnostico.host}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="nombre-parametro">
+                                                    <span translate="celSalesApp.diagnostico.version">Version</span>:
+                                                </td>
+                                                <td class="valor-parametro">{{vm.diagnostico.version}}</td>
+                                            </tr>
+                                            <tr ng-show="false">
+                                                <td class="nombre-parametro">
+                                                    <span translate="celSalesApp.diagnostico.deviceId">Device Id</span>:
+                                                </td>
+                                                <td class="valor-parametro">{{vm.diagnostico.deviceId}}</td>
+                                            </tr>
+                                            <tr ng-show="false">
+                                                <td class="nombre-parametro">
+                                                    <span translate="celSalesApp.diagnostico.androidId">Android Id</span>:
+                                                </td>
+                                                <td class="valor-parametro">{{vm.diagnostico.androidId}}</td>
+                                            </tr>
+                                            <tr ng-show="false">
+                                                <td class="nombre-parametro">
+                                                    <span translate="celSalesApp.diagnostico.wlanMAC">Wlan MAC</span>:
+                                                </td>
+                                                <td class="valor-parametro">{{vm.diagnostico.wlanMAC}}</td>
+                                            </tr>
+                                            <tr ng-show="false">
+                                                <td class="nombre-parametro">
+                                                    <span translate="celSalesApp.diagnostico.btMAC">Bt MAC</span>
+                                                </td>
+                                                <td class="valor-parametro">{{vm.diagnostico.btMAC}}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                  </div>
                                 </div>
                             </div>
-                            <div class="col-md-6">
-                                <div class="panel panel-default" style="border: none;">
-                                    <div class="panel-heading" style="background-color:#28D6C4; border: none; color:white;">
-                                        <h3 class="panel-title text-center"><span translate="celSalesApp.diagnostico.bluetooth">TARJETA LÓGICA</span></h3>
-                                        <!-- ARROJA PROBLEMAS DE FUNCIÓN -->
+                            <div class="col-lg-8 informacion-liberacion">
+                                <div class="row">
+                                    <div class="col-lg-4 informacion-liberacion">
+                                        <div class="panel panel-default" style="border: none;">
+                                            <div class="panel-heading" style="background: #0A3D91; border: none; color:white">
+                                                <h3 class="panel-title text-center">BLUETOOTH</h3>
+                                            </div>
+                                            <div class="panel-body text-center bluetooth" style="background: #0A3D91; border: none;">
+                                                <div ng-switch="vm.diagnostico.bluetooth.isEnabled">
+                                                    <div ng-switch-when="true">
+                                                        <img src="content/images/app/bluetooth_enabled.fw.png">
+                                                    </div>
+                                                    <div ng-switch-when="false">
+                                                        <img src="content/images/app/bluetooth_disabled.fw.png">
+                                                    </div>
+                                                    <div ng-switch-default>
+                                                        <img src="content/images/app/bluetooth.fw.png">
+                                                    </div>
+                                                </div>
+                                                <div ng-show="vm.diagnostico.bluetooth.macAddr.length > 0">
+                                                    MAC:
+                                                    {{vm.diagnostico.bluetooth.macAddr}}
+                                                </div>
+                                                <br>
+                                                <div ng-show="vm.diagnostico.bluetooth.name.length > 0">
+                                                    NAME: {{vm.diagnostico.bluetooth.name}}
+                                                </div>  
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="panel-body text-center" style="background: #28D6C4; border: none;">
-                                        <img src="content/images/tarjeta-logica-alerta.png" style="height: 150px;">
-                                        <!-- <h1>Tarjeta lógica arroja problemas de función SI y NO imagine de chip en rojo y verde o amarillo</h1> -->
-                                    </div>
-                                </div>
 
-                            </div>
-                        </div>
-                        <div class="row" ng-show="false">
-                            <div class="col-md-6">
-                                <div class="panel panel-default">
-                                    <div class="panel-heading" style="background-color:#ececec; color:#a0a0a0; ">
-                                        <h3 class="panel-title text-center">CARRIER DE ORIGEN</h3>
+                                    <div class="col-lg-4 informacion-liberacion">
+                                        <div class="panel panel-default" style="border: none;">
+                                          <div class="panel-heading" style="background-color:#28D6C4; border: none; color:white;">
+                                            <h3 class="panel-title text-center">ESTADO DEL WIFI</h3>
+                                          </div>
+                                          <div class="panel-body text-center wifi" style="background: #28D6C4; border: none;">
+                                            <div ng-switch="vm.diagnostico.wifi.isEnabled">
+                                                <div ng-switch-when="true">
+                                                    <img src="content/images/app/wifi/enabled.fw.png">
+                                                </div>
+                                                <div ng-switch-when="false">
+                                                    <img src="content/images/app/wifi/disabled.fw.png">
+                                                </div>
+                                                <div ng-switch-default>
+                                                    <img src="content/images/app/wifi/error.fw.png">
+                                                </div>
+                                            </div>
+                                            <div ng-show="vm.diagnostico.wifi.macAddr.length > 0">
+                                                MAC: {{vm.diagnostico.wifi.macAddr}}
+                                            </div> 
+                                          </div>
+                                        </div>
                                     </div>
-                                    <div class="panel-body text-center" style="min-height: 220px;">
-                                        <!--<img src="images/app/carriers/telcel.jpg" style="width: 100%;">-->
-                                    </div>
+
+                                    <div class="col-lg-4 informacion-liberacion">
+                                        <div class="panel panel-default">
+                                          <div class="panel-heading">
+                                            <h3 class="panel-title text-center">CARRIER</h3>
+                                          </div>
+                                          <div class="panel-body text-center carrier">
+                                            <div ng-switch="vm.diagnostico.carrier">
+                                                <div ng-switch-when="Telcel">
+                                                    <img src="content/images/app/carriers/telcel.fw.png" style="width: 100%;">
+                                                </div>
+                                                <div ng-switch-when="Movistar">
+                                                    <img src="content/images/app/carriers/movistar.fw.png" style="width: 100%;">
+                                                </div>
+                                                <div ng-switch-when="Virgin Mobile">
+                                                    <img src="content/images/app/carriers/virgin_mobile.fw.png" style="width: 100%;">
+                                                </div>
+                                                <div ng-switch-when="AT&T">
+                                                    <img src="content/images/app/carriers/at_and_t.fw.png" style="width: 100%;">
+                                                </div>
+                                                <div ng-switch-default>
+                                                    <img src="content/images/app/carriers/default.fw.png" style="width: 100%;">
+                                                    {{vm.diagnostico.carrier}}
+                                                </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                    </div>                                    
                                 </div>
                             </div>
-                            <div class="col-md-6">
+
+                            <!-- <div class="col-md-4 informacion-liberacion">
+                            <div class="panel panel-default">
+                              <div class="panel-heading">
+                                <h3 class="panel-title text-center">CARRIER DE DESBLOQUEO</h3>
+                              </div>
+                              <div class="panel-body text-center" style="min-height: 237px;">
+                                <img src="content/images/app/carriers/movistar.png" style="width: 100%;">
+                              </div>
+                            </div>
+                            </div> -->
+
+                            <div class="col-lg-5 informacion-liberacion">
                                 <div class="panel panel-default">
-                                    <div class="panel-heading" style="background-color:#ececec; color:#a0a0a0; ">
-                                        <h3 class="panel-title text-center">CARRIER DE DESBLOQUEO</h3>
-                                    </div>
-                                    <div class="panel-body text-center" style="min-height: 220px;">
-                                        <!--<img src="images/app/carriers/movistar.png" style="width: 100%;">-->
+                                  <div class="panel-heading">
+                                    <h3 class="panel-title text-center">ANÁLISIS BATERIA</h3>
+                                  </div>
+                                  <div class="panel-body">
+                                  <div class="row">
+                                    <div class="col-md-12 informacion-liberacion">
+                                        <div class="row">
+                                            <div class="col-lg-4 no-operacion">
+                                                <span class="bateria nivel-50"></span><br>
+                                                <span translate="celSalesApp.diagnostico.bateria.carga">Carga</span>: {{vm.diagnostico.battery.batteryPct}}
+                                            </div>
+                                            <div class="col-lg-8">
+                                                <table class="table">
+                                                    <tr>
+                                                        <td class="nombre-parametro" style="border: none">
+                                                            <span translate="celSalesApp.diagnostico.bateria.health">Health</span>:
+                                                        </td>
+                                                        <td class="valor-parametro" style="border: none">{{vm.diagnostico.battery.health.status}}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="nombre-parametro" style="border: none">
+                                                            <span translate="celSalesApp.diagnostico.bateria.status">status</span>:
+                                                        </td>
+                                                        <td class="valor-parametro" style="border: none">{{vm.diagnostico.battery.status.code}}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="nombre-parametro" style="border: none">
+                                                            <span translate="celSalesApp.diagnostico.bateria.powerSource">Power Source</span>:
+                                                        </td>
+                                                        <td class="valor-parametro" style="border: none">{{vm.diagnostico.battery.plugged.status}}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="nombre-parametro" style="border: none">
+                                                            <span translate="celSalesApp.diagnostico.bateria.estatusCarga">Status</span>:
+                                                        </td>
+                                                        <td class="valor-parametro" style="border: none">{{vm.diagnostico.battery.status.status}}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="nombre-parametro" style="border: none">
+                                                            <span translate="celSalesApp.diagnostico.bateria.tecnologia">Technology</span>:
+                                                        </td>
+                                                        <td class="valor-parametro" style="border: none">{{vm.diagnostico.battery.technology}}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="nombre-parametro" style="border: none">
+                                                            <span translate="celSalesApp.diagnostico.bateria.voltaje">Voltage</span>:
+                                                        </td>
+                                                        <td class="valor-parametro" style="border: none">{{vm.diagnostico.battery.voltage}}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="nombre-parametro" style="border: none">
+                                                            <span translate="celSalesApp.diagnostico.bateria.capacidad">Capacity</span>:
+                                                        </td>
+                                                        <td class="valor-parametro" style="border: none">{{vm.diagnostico.battery.capacity}}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="nombre-parametro" style="border: none">
+                                                            <span translate="celSalesApp.diagnostico.bateria.temperatura">Temperature</span>:
+                                                        </td>
+                                                        <td class="valor-parametro" style="border: none">{{vm.diagnostico.battery.temperature}}</td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
+                                  </div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12 informacion-liberacion">
-                                <div class="panel panel-default" style="width: 480px;">
-                                    <div class="panel-heading" style="background-color:#ececec; color:#a0a0a0; ">
-                                        <h3 class="panel-title text-center"><span translate="celSalesApp.diagnostico.analisisBateria">ANÁLISIS BATERIA</span></h3>
-                                    </div>
-                                    <div class="panel-body">
+                            <div class="col-lg-7 informacion-liberacion">
+                                <div class="panel panel-default">
+                                  <div class="panel-heading">
+                                    <h3 class="panel-title text-center">SOFTWARE NO OFICIAL INSTALADO</h3>
+                                  </div>
+                                  <div class="widget-bateria panel-body">
+                                    <ul class="apps-instaladas">
+                                      <li ng-repeat="app in vm.diagnostico.appsList">
                                         <table class="table">
                                             <tr>
-                                                <td class="no-operacion" style="border: none">
-                                                    <span class="bateria nivel-25"></span>
-                                                    <span translate="celSalesApp.diagnostico.bateria.carga">Health</span>: {{vm.diagnostico.battery.batteryPct}}
+                                                <td rowspan="6" style="width: 102px;padding-top: 46px;">
+                                                    <img src="content/images/app/app-icon.fw.png">
                                                 </td>
-                                                <td rowspan="2" style="border: none">
-                                                    <table class="table">
-                                                        <tr>
-                                                            <td class="nombre-parametro" style="border: none">
-                                                                <span translate="celSalesApp.diagnostico.bateria.health">Health</span>:
-                                                            </td>
-                                                            <td class="valor-parametro" style="border: none">{{vm.diagnostico.battery.health.status}}</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="nombre-parametro" style="border: none">
-                                                                <span translate="celSalesApp.diagnostico.bateria.powerSource">Power Source</span>:
-                                                            </td>
-                                                            <td class="valor-parametro" style="border: none">{{vm.diagnostico.battery.plugged.status}}</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="nombre-parametro" style="border: none">
-                                                                <span translate="celSalesApp.diagnostico.bateria.estatusCarga">Status</span>:
-                                                            </td>
-                                                            <td class="valor-parametro" style="border: none">{{vm.diagnostico.battery.status.status}}</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="nombre-parametro" style="border: none">
-                                                                <span translate="celSalesApp.diagnostico.bateria.tecnologia">Technology</span>:
-                                                            </td>
-                                                            <td class="valor-parametro" style="border: none">{{vm.diagnostico.battery.technology}}</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="nombre-parametro" style="border: none">
-                                                                <span translate="celSalesApp.diagnostico.bateria.voltaje">Voltage</span>:
-                                                            </td>
-                                                            <td class="valor-parametro" style="border: none">{{vm.diagnostico.battery.voltage}}</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="nombre-parametro" style="border: none">
-                                                                <span translate="celSalesApp.diagnostico.bateria.capacidad">Capacity</span>:
-                                                            </td>
-                                                            <td class="valor-parametro" style="border: none">{{vm.diagnostico.battery.capacity}}</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="nombre-parametro" style="border: none">
-                                                                <span translate="celSalesApp.diagnostico.bateria.temperatura">Temperature</span>:
-                                                            </td>
-                                                            <td class="valor-parametro" style="border: none">{{vm.diagnostico.battery.temperature}}</td>
-                                                        </tr>
-                                                    </table>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-right nombre-parametro" style="width: 149px;">
+                                                    Nombre de la aplicacion
+                                                </td>
+                                                <td colspan="2">
+                                                    {{app.appName}}
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-right nombre-parametro">
+                                                    Paquete
+                                                </td>
+                                                <td colspan="2">
+                                                    {{app.appPackage}}
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-right nombre-parametro">
+                                                    Version
+                                                </td>
+                                                <td colspan="2">
+                                                    {{app.appVersion}}
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-right nombre-parametro">
+                                                    Instalacion
+                                                </td>
+                                                <td>
+                                                    {{app.appInstalled}}
+                                                </td>
+                                                <td class="text-right nombre-parametro">
+                                                    Ultima modificacion
+                                                </td>
+                                                <td>
+                                                    {{app.appLastModify}}
                                                 </td>
                                             </tr>
                                         </table>
-                                    </div>
+                                      </li>
+                                    </ul>
+                                  </div>
                                 </div>
                             </div>
-                        </div>
-
-                    </div>
-                    <div class="col-md-3">
-                        <div class="row">
-                            <div class="col-md-12 informacion-liberacion">
+                            <div class="col-lg-6 informacion-liberacion">
                                 <div class="panel panel-default">
-                                    <div class="panel-heading" style="background-color:#ececec; color:#a0a0a0; ">
-                                        <h3 class="panel-title text-center"><span translate="celSalesApp.diagnostico.almInterno">ALMACENAMIENTO INTERNO</span></h3>
-                                    </div>
-                                    <div class="panel-body text-center">
-                                        <span translate="celSalesApp.diagnostico.almTotal">Total</span>: {{vm.diagnostico.storage.internal.total}}
-                                        <br/>
-                                        <span translate="celSalesApp.diagnostico.almDisponible">Disponible</span>: {{vm.diagnostico.storage.internal.available}}
-                                        <div class="progress" ng-show="false">
-                                            <div class="progress-bar" role="progressbar" 
-                                                 aria-valuenow="{{vm.pctInterno}}" aria-valuemin="0" 
-                                                 aria-valuemax="100" ng-style="{'width': vm.pctInterno + '%'}">
-                                                {{vm.pctInterno}}%
-                                            </div>
+                                  <div class="panel-heading">
+                                    <h3 class="panel-title text-center">ALMACENAMIENTO INTERNO</h3>
+                                  </div>
+                                  <div class="panel-body text-center">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div id="chart_almacenamiento_interno" ></div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <center>
+                                                <table class="table">
+                                                    <tr>
+                                                        <td class="text-right nombre-parametro">Ocupado</td>
+                                                        <td>{{almacenamiento.interno.ocupado}} Gb</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-right nombre-parametro">Disponible</td>
+                                                        <td>{{almacenamiento.interno.disponible}} Gb</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-right nombre-parametro">Total</td>
+                                                        <td>{{vm.diagnostico.storage.internal.total}}</td>
+                                                    </tr>
+                                                </table>
+                                            </center>
                                         </div>
                                     </div>
+                                  </div>
                                 </div>
-
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12 informacion-liberacion">
+                            <div class="col-lg-6 informacion-liberacion">
                                 <div class="panel panel-default">
-                                    <div class="panel-heading" style="background-color:#ececec; color:#a0a0a0; ">
-                                        <h3 class="panel-title text-center"><span translate="celSalesApp.diagnostico.almExterno">ALMACENAMIENTO EXTERNO</span></h3>
-                                    </div>
-                                    <div class="panel-body text-center">
-                                        <span translate="celSalesApp.diagnostico.almTotal">Total</span>: {{vm.diagnostico.storage.external.total}}
-                                        <br/>
-                                        <span translate="celSalesApp.diagnostico.almDisponible">Disponible</span>: {{vm.diagnostico.storage.external.available}}
-                                        <div class="progress" ng-show="false">
-                                            <div class="progress-bar" role="progressbar" 
-                                                 aria-valuenow="{{vm.pctExterno}}" aria-valuemin="0" 
-                                                 aria-valuemax="100" ng-style="{'width': vm.pctExterno + '%'}">
-                                                {{vm.pctExterno}}%
-                                            </div>
+                                  <div class="panel-heading">
+                                    <h3 class="panel-title text-center">ALMACENAMIENTO EXTERNO</h3>
+                                  </div>
+                                  <div class="panel-body text-center">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div id="chart_almacenamiento_externo" ></div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <table class="table">
+                                                <tr>
+                                                    <td class="text-right nombre-parametro">Ocupado</td>
+                                                    <td>{{vm.diagnostico.storage.external.available}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-right nombre-parametro">Disponible</td>
+                                                    <td>{{vm.diagnostico.storage.external.available}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-right nombre-parametro">Total</td>
+                                                    <td>{{vm.diagnostico.storage.external.total}}</td>
+                                                </tr>
+                                            </table>
                                         </div>
                                     </div>
+                                  </div>
                                 </div>
-
                             </div>
                         </div>
                     </div>
-
-                </div>
-                <div class="row">
-                    <button type="submit"
-                            onclick="window.history.back()"
-                            class="btn btn-info">
-                        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
-                    </button>
+                    <div class="col-md-3" style="background-color:#fbfbfb">
+                        <h1 class="text-center">ERRORES DE SOFTWARE</h1>
+                        <!-- <hr>
+                        <pre>
+                            {{vm | json}}
+                        </pre> -->
+                        <hr>
+                        <ul class="timeline">
+                          <li class="timeline-inverted">
+                            <div class="timeline-badge warning"><i class="glyphicon glyphicon-credit-card"></i></div>
+                            <div class="timeline-panel">
+                              <div class="timeline-heading">
+                                <h4 class="timeline-title">Mussum ipsum cacilds</h4>
+                              </div>
+                              <div class="timeline-body">
+                                <p>Interessantiss quisso pudia ce receita de bolis, mais bolis eu num gostis.</p>
+                              </div>
+                            </div>
+                          </li>
+                          <li class="timeline-inverted">
+                            <div class="timeline-badge success"><i class="glyphicon glyphicon-thumbs-up"></i></div>
+                            <div class="timeline-panel">
+                              <div class="timeline-heading">
+                                <h4 class="timeline-title">Mussum ipsum cacilds</h4>
+                              </div>
+                              <div class="timeline-body">
+                                <p>Mussum ipsum cacilds, vidis litro abertis. Consetis adipiscings elitis. Pra lá , depois divoltis porris, paradis. Paisis, filhis, espiritis santis.</p>
+                              </div>
+                            </div>
+                          </li>
+                          <li class="timeline-inverted">
+                            <div class="timeline-badge success"><i class="glyphicon glyphicon-thumbs-up"></i></div>
+                            <div class="timeline-panel">
+                              <div class="timeline-heading">
+                                <h4 class="timeline-title">Mussum ipsum cacilds</h4>
+                              </div>
+                              <div class="timeline-body">
+                                <p>Manduma pindureta quium dia nois paga. Sapien in monti palavris qui num significa nadis i pareci latim. Interessantiss quisso pudia ce receita de bolis, mais bolis eu num gostis.</p>
+                              </div>
+                            </div>
+                          </li>
+                          <li class="timeline-inverted">
+                            <div class="timeline-badge success"><i class="glyphicon glyphicon-thumbs-up"></i></div>
+                            <div class="timeline-panel">
+                              <div class="timeline-heading">
+                                <h4 class="timeline-title">Mussum ipsum cacilds</h4>
+                              </div>
+                              <div class="timeline-body">
+                                <p>Mussum ipsum cacilds, vidis litro abertis. Consetis adipiscings elitis. Pra lá , depois divoltis porris, paradis.</p>
+                              </div>
+                            </div>
+                          </li>
+                          <li class="timeline-inverted">
+                            <div class="timeline-badge success"><i class="glyphicon glyphicon-thumbs-up"></i></div>
+                            <div class="timeline-panel">
+                              <div class="timeline-heading">
+                                <h4 class="timeline-title">Mussum ipsum cacilds</h4>
+                              </div>
+                              <div class="timeline-body">
+                                <p>Sapien in monti palavris qui num significa nadis i pareci latim. Interessantiss quisso pudia ce receita de bolis, mais bolis eu num gostis.</p>
+                              </div>
+                            </div>
+                          </li>
+                          <li class="timeline-inverted">
+                            <div class="timeline-badge success"><i class="glyphicon glyphicon-thumbs-up"></i></div>
+                            <div class="timeline-panel">
+                              <div class="timeline-heading">
+                                <h4 class="timeline-title">Mussum ipsum cacilds</h4>
+                              </div>
+                              <div class="timeline-body">
+                                <p>PaisInteressantiss quisso pudia ce receita de bolis, mais bolis eu num gostis.</p>
+                              </div>
+                            </div>
+                          </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-
         </div>
         <!-- /#page-content-wrapper -->
     </div>

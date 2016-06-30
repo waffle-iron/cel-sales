@@ -363,7 +363,7 @@ hr {
 #sidebar-wrapper {
   z-index: 1000;
   position: fixed;
-  left: 250px;
+  left: 229px;
   width: 0;
   height: 100%;
   margin-left: -250px;
@@ -380,7 +380,7 @@ hr {
 }
 
 #page-content-wrapper {
-    padding-left: 185px;
+    padding-left: 130px;
 }
 
 #wrapper.toggled #page-content-wrapper {
@@ -397,7 +397,7 @@ span.sidebar {
 .sidebar-nav {
     position: absolute;
     top: 0;
-    width: 250px;
+    width: 205px;
     margin: 0;
     padding: 0;
     list-style: none;
@@ -443,7 +443,7 @@ span.sidebar {
     }*/
 
     #sidebar-wrapper {
-        width: 250px;
+      width: 212px;
     }
 
     #wrapper.toggled #sidebar-wrapper {
@@ -467,6 +467,7 @@ span.sidebar {
 
       body{
         font-family: 'Source Sans Pro', sans-serif;
+        font-size: 12px;
         color: #98a6ad;
         padding-bottom: 40px;
         padding-top: 50px;
@@ -486,6 +487,7 @@ span.sidebar {
       }
       div.col-md-4.informacion-liberacion .panel-default{
         box-shadow: 0px 0px 6px #d6d6d6;
+        min-height: 284px;
       }
       td.estado-operacion{
         background-color: #3AB54A;
@@ -496,7 +498,7 @@ span.sidebar {
       td.no-operacion {
         background-color: #607D8B;
         color: #CFD8DD;
-        font-size: 18px;
+        font-size: 25px;
         text-align: center;
         vertical-align: middle !important;
       }
@@ -551,7 +553,7 @@ span.sidebar {
         border: 1px solid white;
         border-width: .5em 1em;
         box-shadow: 0 0 0 5px #9a9a9a;
-        margin: 4em 1.5em 1.5em;
+        margin: 44px 0px 4px;
         position: relative;
         background-color: #529219;
         border-radius: 6px;
@@ -577,15 +579,15 @@ span.sidebar {
         background-size: 100%;
       }
       .bateria:before {
-        position: absolute;
-        top: -28px;
-        left: -3px;
-        display: block;
-        background: #9a9a9a;
-        width: 40px;
-        height: 16px;
-        content: "";
-        border-radius: 6px 6px 0 0;
+          position: absolute;
+          top: -26px;
+          left: 1px;
+          display: block;
+          background: #9a9a9a;
+          width: 52px;
+          height: 12px;
+          content: "";
+          border-radius: 6px 6px 0 0;
       }
       .bateria:after {
         position: absolute;
@@ -593,7 +595,7 @@ span.sidebar {
         left: 0em;
         display: block;
         background: white;
-        width: 39px;
+        width: 65px;
         height: 0;
         content: "";
       }
@@ -878,8 +880,82 @@ span.sidebar {
 /*DETALLE DIAGNOSTICO*/
 .widget-bateria.panel-body {
     padding: 15px;
-    max-height: 250px;
     overflow: hidden;
     overflow-y: scroll;
+    max-height: 380px;
+    min-height: 385px;
 }
+
+.widget-info-diagnostico.panel-body {
+    /*overflow: hidden;
+    overflow-y: scroll;
+    max-height: 553px;
+    min-height: 550px;*/
+}
+.panel-body.bluetooth, .panel-body.wifi, .panel-body.carrier{
+  min-height: 132px;
+}
+.panel-body.bluetooth img, .panel-body.wifi img {
+  height:  74px;
+}
+.no-operacion {
+  background-color: #607D8B;
+  color: #CFD8DD;
+  font-size: 20px;
+  text-align: center;
+  vertical-align: middle !important;
+}
+ul.apps-instaladas>li{
+  border-top:1px solid #e2e2e2;
+  border-right:1px solid #e2e2e2;
+  border-bottom:1px solid #e2e2e2;
+  border-left: 3px solid #DB5100;
+  margin-bottom: 5px;
+}
+
+table.table.info-diagnostico td{
+  padding: 2px;
+  /*background-color: red;*/
+}
+/*BATERIA*/
+@media(min-width:768px) {
+  .no-operacion {
+    background-color: #3f4b6b;
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    vertical-align: middle !important
+  }
+  .bateria {
+    width: 3.5em;
+    height: 152px;
+    border: 1px solid #ffffff;
+    border-width: 9px 1em;
+    box-shadow: 0 0 0 5px white;
+    margin: 95px 0px 40px;
+    background-color: #a7c1a1;
+  }
+  .bateria:before {
+    position: absolute;
+    top: -25px;
+    left: -7px;
+    display: block;
+    background: white;
+    width: 45px;
+    height: 12px;
+    content: "";
+    border-radius: 6px 6px 0 0;
+  }
+  .bateria.nivel-50:after {
+    height: 69px;
+  }
+  .bateria:after {
+    width: 30px;
+  }
+
+
+}
+/*.informacion-liberacion .panel-heading{
+  background-color: red;
+}*/
 /*DETALLE DIAGNOSTICO*/

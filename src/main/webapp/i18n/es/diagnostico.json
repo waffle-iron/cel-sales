@@ -7,6 +7,17 @@
                 "createOrEditLabel": "Crear o editar Diagnostico",
                 "search": "Search for Diagnostico"
             },
+            "bateria" : {
+                "health": "Health",
+                "powerSource": "Origen de energia",
+                "tecnologia": "Tecnologia",
+                "voltaje": "Voltaje",
+                "status": "Estado",
+                "capacidad": "Capacidad",
+                "carga": "Carga",
+                "temperatura": "Temperatura",
+                "estatusCarga": "Estado de la carga"
+            },
             "created": "Un nuevo Diagnostico ha sido creado con el identificador {{ param }}",
             "updated": "Un Diagnostico ha sido actualizado con el identificador {{ param }}",
             "deleted": "Un Diagnostico ha sido eliminado con el identificador {{ param }}",
@@ -16,7 +27,17 @@
             "detail": {
                 "title": "Diagnostico"
             },
+            "health": "Health",
+            "almTotal": "Capacidad de Almacenamiento",
+            "almDisponible": "Almacenamiento disponible",
+            "powerSource": "Origen de alimentacion",
+            "almInterno": "Almacenamiento Interno",
+            "almExterno": "Almacenamiento Externo",
+            "manufacturer": "Manufacturer",
+            "bluetooth": "Bluetooth",
+            "brand": "Marca",
             "imei": "Imei",
+            "model": "Modelo",
             "serial": "Serial",
             "tempBateria": "Temp Bateria",
             "tecBateria": "Tec Bateria",
@@ -34,6 +55,7 @@
             "bluetoothEnabled": "Bluetooth Enabled",
             "bluetoothMacAddr": "Bluetooth Mac Addr",
             "bluetoothName": "Bluetooth Name",
+            "version": "Version",
             "wifiEnabled": "Wifi Enabled",
             "wifiMacAddr": "Wifi Mac Addr"
         }
