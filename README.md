@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/bec73/cel-sales.png?label=ready&title=Ready)](https://waffle.io/bec73/cel-sales)
 # celSales
 
 This application was generated using JHipster, you can find documentation and help at [https://jhipster.github.io](https://jhipster.github.io).
